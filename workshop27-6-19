@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<body style="background-color:aqua;">
+<h1>WT workshop</h1>
+<P>
+<i>I am here to learn web technologies like</i> 
+<br>
+<b>HTML</b>
+<br>CSS<br>JavaScript<br>Bootstrap.....  </P>
+<a href="https:www.google.com">Click Here to open GOOGLE</a>
+<br>
+<a href="https:www.google.com" target="_blank">
+<button>GOOGLE</button></a>
+<br>
+<img src="/home"alt="image not found">
+<pre>Today's date is <b>27-6-19</b>
+<i>Italy</i> <mark>is a country</mark>
+Today is <strong>thursday</strong> <b>thursday</b>
+<br>x=y<sup>2</sup></br>
+water chemical formulae is <b>H<sub>2</sub>O</b>
+</pre>
+<marquee direction="right"><q> GOOD EVENING</q> </marquee>
+<p style="background-color:aqua;">HI</p>
+<bdo dir="rtl">This is Quote</bdo>
+</body>
+</html>
