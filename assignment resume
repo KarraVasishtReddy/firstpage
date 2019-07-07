@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body text="white">
+<style>
+img {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style
+<head>
+</head>
+<div style="background-color:#192041">
+<h1>#student</h1><br>
+<img src="http://resources.vardhaman.org/images/cse/18881A05L8.jpg" alt="Avatar" >
+<p style="text-align:center;"><b>KARRA VASISHT REDDY</b></P>
+</div><div style="background-color:#ffc107">
+<pre>                              <b>About</b>
+I am studying 2nd year computer science btech in Vardhaman college of engineering.
+I completed my MPC branch junior inter in Velociity junior college by 2018.
+I completed my tenth standard in Narayana e-techno school by 2016.
+</pre>
+</div>
+<div style="background-color:#192041">
+<p style="text-align:center;"><b>Hobbies</b><br>Listening music<br>Understanding world in basic terms<br>Talking with friends<br>Watching cricket,web-series,technologies,etc<br><b>Goal</b><br>To become World's greatest Programmer
+</p>
+</div>
+</body>
+</html>
