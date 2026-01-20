@@ -1,65 +1,209 @@
 <!DOCTYPE html>
-<html>
-<body text="white">
-<style>
-img {
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 15%;
-}
-table {
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color:#ffc107;
-}
-  </style>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasisht Reddy | Data Engineer</title>
+  <meta name="description" content="Professional portfolio of Vasisht Reddy, Data Engineer specializing in scalable data pipelines, cloud platforms, and analytics." />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    header {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    nav {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #1f2937;
+      font-weight: bold;
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+    .card {
+      background: #ffffff;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .skills div {
+      background: #f3f4f6;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: #111827;
+      color: #ffffff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+  </style>
 </head>
-<div style="background-color:#192041">
-<h1>#student</h1>
-<img src="http://resources.vardhaman.org/images/cse/18881A05L8.jpg" alt="Avatar" >
-<p style="text-align:center;"><b>KARRA VASISHT REDDY</b></P>
-</div><div style="background-color:#ffc107">
-<table>
-  <tr>
-    <th>Where as about</th>
-    
-    <th>Year</th>
-  </tr>
-  <tr>
-    <td>2nd year in Vardhaman college of Engineering</td>
-    
-    <td>2019-20(present)</td>
-  </tr>
-  <tr>
-    <td>1st year in Vardhaman college of Engineering</td>
-    
-    <td>2018-19</td>
-  </tr>
-  <tr>
-    <td>Intermediate in Velociity Jr.college in Madhapur,Hyderabad</td>
- <td> 2016-18</td> 
-  </tr>
-  <tr>
-    <td>10th grade in Narayana techno school</td>
-    <td>2015-16</td>
-  </tr>
-</table>
+<body>
 
-</div>
-<div style="background-color:#192041">
-<p style="text-align:center;"><b>Hobbies</b><br>Listening music<br>Understanding world in basic terms<br>Talking with friends<br>Watching cricket,web-series,technologies,etc<br><b>Goal</b><br>To become World's greatest Programmer
-</p>
-</div>
+  <header>
+    <h1>Vasisht Reddy</h1>
+    <p>Data Engineer | Cloud & Big Data Systems | ETL & Analytics</p>
+    <p>Hyderabad, India</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am a Data Engineer with hands-on experience designing, building, and optimizing
+        scalable ETL/ELT pipelines and data platforms. I specialize in transforming raw data
+        into analytics-ready systems using Spark, cloud services, and modern data
+        engineering practices.
+      </p>
+      <p>
+        I have worked across publishing, sales, finance, healthcare, and e-commerce domains,
+        delivering reliable, production-grade data solutions that enable better
+        decision-making.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div><strong>Programming</strong><br/>Python, SQL, Scala, Java, C, JavaScript</div>
+      <div><strong>Data Engineering</strong><br/>Apache Spark, Hadoop, Hive, Airflow, PySpark</div>
+      <div><strong>Databases</strong><br/>PostgreSQL, MySQL, MongoDB, BigQuery</div>
+      <div><strong>Cloud</strong><br/>AWS (S3, Glue, EMR, Redshift), GCP</div>
+      <div><strong>DevOps</strong><br/>Docker, Kubernetes, CI/CD, Git</div>
+      <div><strong>Analytics & ML</strong><br/>Pandas, NumPy, Scikit-learn, Power BI</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Professional Experience</h2>
+
+    <div class="card">
+      <h3>Data Engineer – Viswam Edutech Pvt Ltd</h3>
+      <p><em>Feb 2025 – Present | Hyderabad</em></p>
+      <ul>
+        <li>Designed and optimized end-to-end data pipelines for publishing workflows.</li>
+        <li>Integrated sales, inventory, delivery, and customer analytics data sources.</li>
+        <li>Built and maintained analytics-ready data warehouse schemas using SQL.</li>
+        <li>Improved data reliability through validation, monitoring, and quality checks.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>ML Data Engineer – Brain-O-Vision</h3>
+      <p><em>Jan 2022 – Aug 2022 | Hyderabad</em></p>
+      <ul>
+        <li>Built ML data pipelines using Python, Pandas, and NumPy.</li>
+        <li>Developed ETL pipelines for structured and unstructured datasets.</li>
+        <li>Automated workflows using Apache Airflow.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Cloud & Data Intern – Google Qwiklabs</h3>
+      <p><em>Feb 2021 – Dec 2021</em></p>
+      <ul>
+        <li>Worked on GCP, Kubernetes, and BigQuery-based data labs.</li>
+        <li>Built cloud-based ML workflows using TensorFlow.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+      <h3>Urban Traffic Flow Optimization System</h3>
+      <p>
+        Engineered high-performance data pipelines for large-scale traffic datasets and
+        implemented real-time traffic simulations using Apache Spark.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Fraud Detection System for Financial Transactions</h3>
+      <p>
+        Built scalable data workflows for real-time fraud detection using distributed
+        frameworks and anomaly detection algorithms.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:KVasishtReddy@gmail.com">KVasishtReddy@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/vasisht-reddy-karra" target="_blank">linkedin.com/in/vasisht-reddy-karra</a></p>
+      <p>Location: Hyderabad, India</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Vasisht Reddy | Data Engineer Portfolio</p>
+  </footer>
+
 </body>
 </html>
