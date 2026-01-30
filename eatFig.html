@@ -10,199 +10,173 @@
             --card-bg: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent: #38bdf8; /* Light Blue for Data/Cloud vibes */
-            --code-font: 'Courier New', Courier, monospace;
+            --accent: #38bdf8; /* Sky blue */
+            --accent-hover: #0ea5e9;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        .logo { font-weight: bold; font-size: 1.2rem; }
-        .links a { color: var(--text-secondary); text-decoration: none; margin-left: 20px; transition: color 0.3s;}
-        .links a:hover { color: var(--accent); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        .nav-links a { margin-left: 20px; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
 
         /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            border-bottom: 1px solid #334155;
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.1; }
-        .hero .subtitle { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 20px; }
-        .highlight { color: var(--accent); }
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--bg-color);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-        }
+        .hero { padding: 60px 0; display: flex; align-items: center; gap: 40px; }
+        .hero-content { flex: 2; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero span { color: var(--accent); }
+        .hero p { color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 30px; }
+        .btn { display: inline-block; padding: 12px 30px; background: var(--accent); color: #000; font-weight: bold; border-radius: 5px; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); margin-left: 10px; }
 
-        /* Skills Terminal Style */
-        .tech-stack {
-            background: #000;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: var(--code-font);
-            color: #4ade80; /* Terminal Green */
-            margin: 40px 0;
-            overflow-x: auto;
-        }
+        /* Skills Grid (The Pipeline View) */
+        .section-title { font-size: 2rem; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 15px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 80px; }
+        .skill-card { background: var(--card-bg); padding: 25px; border-radius: 10px; border-top: 3px solid var(--accent); }
+        .skill-card h3 { margin-bottom: 15px; }
+        .skill-tags span { display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; margin: 0 5px 5px 0; }
 
-        /* Project Cards */
-        .section-title { margin-top: 60px; font-size: 2rem; border-left: 5px solid var(--accent); padding-left: 15px; }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            transition: transform 0.2s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .card h3 { margin-top: 0; }
-        .tags span {
-            display: inline-block;
-            background: #334155;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-right: 5px;
-            margin-top: 10px;
-        }
-
+        /* Projects (Case Studies) */
+        .project-card { display: flex; flex-direction: column; background: var(--card-bg); margin-bottom: 30px; border-radius: 10px; overflow: hidden; padding: 30px; }
+        .project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .tech-stack { font-family: 'Courier New', monospace; color: var(--accent); font-size: 0.9rem; }
+        
         /* Experience Timeline */
-        .timeline-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 2px solid var(--text-secondary);
-        }
-        .date { color: var(--text-secondary); font-size: 0.9rem; font-family: var(--code-font); }
+        .timeline-item { border-left: 2px solid var(--card-bg); padding-left: 30px; margin-bottom: 40px; position: relative; }
+        .timeline-item::before { content: ''; width: 12px; height: 12px; background: var(--accent); position: absolute; left: -7px; top: 5px; border-radius: 50%; }
+        .role { font-size: 1.3rem; font-weight: bold; }
+        .company { color: var(--text-secondary); margin-bottom: 10px; display: block; }
 
-        footer { text-align: center; padding: 40px 0; color: var(--text-secondary); font-size: 0.9rem; }
+        /* Footer */
+        footer { text-align: center; padding: 50px 0; color: var(--text-secondary); border-top: 1px solid var(--card-bg); margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; }
+            .hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <nav>
-        <div class="logo">Vasisht Reddy K.</div>
-        <div class="links">
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="mailto:KVasishtReddy@gmail.com">Contact</a>
-        </div>
-    </nav>
+    <div class="container">
+        <header>
+            <div class="logo">VRK.Data</div>
+            <nav class="nav-links">
+                <a href="#skills">Stack</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="mailto:KVasishtReddy@gmail.com">Contact</a>
+            </nav>
+        </header>
 
-    <section class="hero">
-        <h1>Building Scalable <br><span class="highlight">Data Pipelines</span> & ML Systems.</h1>
-        <p class="subtitle">Data Engineer optimizing ETL workflows and distributed systems on AWS & GCP.</p>
-        <p style="max-width: 600px; color: #94a3b8;">
-            Currently designing end-to-end publishing workflows at <strong>Viswam Edutech</strong>. 
-            Expertise in Python, Spark, and Airflow.
-        </p>
-        <a href="#" class="btn">Download Resume</a>
-    </section>
-
-    <div class="tech-stack">
-        <p>> const current_stack = {</p>
-        <p>&nbsp;&nbsp;languages: ["Python", "SQL", "Scala", "Java"],</p>
-        <p>&nbsp;&nbsp;big_data: ["Apache Spark", "Hadoop", "PySpark"],</p>
-        <p>&nbsp;&nbsp;orchestration: ["Apache Airflow", "ETL/ELT Pipelines"],</p>
-        <p>&nbsp;&nbsp;cloud: ["AWS Redshift", "AWS Glue", "GCP BigQuery"],</p>
-        <p>&nbsp;&nbsp;devops: ["Docker", "Kubernetes", "Git"]</p>
-        <p>};</p>
-    </div>
-
-    <h2 class="section-title" id="projects">Featured Engineering Projects</h2>
-    
-    
-    
-    <div class="project-grid">
-        <div class="card">
-            <h3>Urban Traffic Flow Optimization</h3>
-            <p>Engineered high-performance data pipelines for large-scale traffic datasets. Implemented real-time simulation algorithms using distributed computing to reduce computation time.</p>
-            <div class="tags">
-                <span>Apache Spark</span>
-                <span>Distributed Computing</span>
-                <span>Python</span>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Building High-Performance <br><span>Data Pipelines</span></h1>
+                <p>
+                    I am Vasisht Reddy K. A Data Engineer specializing in Cloud ETL (AWS/GCP), 
+                    Distributed Systems (Spark), and Workflow Orchestration (Airflow).
+                    Turning raw chaos into actionable insights.
+                </p>
+                <a href="#" class="btn">Download Resume</a>
+                <a href="https://linkedin.com" class="btn btn-outline">LinkedIn</a>
             </div>
-        </div>
-
-        <div class="card">
-            <h3>Fraud Detection System</h3>
-            <p>Developed a scalable data processing workflow for real-time fraud detection. Implemented anomaly-detection ML algorithms to analyze high-volume transaction data.</p>
-            <div class="tags">
-                <span>Scala</span>
-                <span>Machine Learning</span>
-                <span>Real-time Processing</span>
+            <div style="font-family: monospace; color: var(--accent); background: var(--card-bg); padding: 20px; border-radius: 10px;">
+                > git commit -m "optimize_etl"<br>
+                > deploy pipeline --target=prod<br>
+                > status: <span style="color: #4ade80">HEALTHY</span><br>
+                > processing: 1.2TB/day
             </div>
-        </div>
-    </div>
+        </section>
 
-    <h2 class="section-title" id="experience">Professional History</h2>
-    
-    <div class="timeline-item">
-        <div class="date">Feb 2025 - Present</div>
-        <h3>Data Engineer | Viswam Edutech Pvt Ltd</h3>
-        <ul>
-            <li>Designed end-to-end data pipelines for publishing workflows, improving ingestion performance.</li>
-            <li>Built data warehouse schemas using PostgreSQL and AWS Redshift.</li>
-            <li>Enforced data quality checks and automated monitoring to reduce processing errors.</li>
-        </ul>
-    </div>
+        <section id="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Processing & Compute</h3>
+                    <div class="skill-tags">
+                        <span>Apache Spark</span>
+                        <span>Python (Pandas/NumPy)</span>
+                        <span>Scala</span>
+                        <span>Hadoop</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Cloud Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span>AWS (Glue, Redshift, EMR)</span>
+                        <span>GCP (BigQuery, Compute)</span>
+                        <span>Docker/Kubernetes</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Orchestration & DB</h3>
+                    <div class="skill-tags">
+                        <span>Apache Airflow</span>
+                        <span>PostgreSQL</span>
+                        <span>MongoDB</span>
+                        <span>SQL Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="timeline-item">
-        <div class="date">Jan 2022 - Aug 2022</div>
-        <h3>ML Data Engineer | Brain-O-Vision</h3>
-        <ul>
-            <li>Built machine learning data pipelines with Python/Pandas, automating preprocessing.</li>
-            <li>Utilized Airflow for workflow orchestration and automation.</li>
-            <li>Processed structured and unstructured data from finance and healthcare sectors.</li>
-        </ul>
-    </div>
+        <section id="projects">
+            <h2 class="section-title">Engineered Solutions</h2>
+            
+            <div class="project-card">
+                <div class="project-meta">
+                    <h3>Urban Traffic Flow Optimization System</h3>
+                    <span class="tech-stack">Spark | Distributed Computing | Python</span>
+                </div>
+                <p>Designed high-performance data pipelines to process large-scale traffic datasets. Implemented real-time traffic simulation algorithms using distributed computing, leveraging Apache Spark to significantly improve system efficiency and reduce computation time.</p>
+            </div>
 
-    <div class="timeline-item">
-        <div class="date">Feb 2021 - Dec 2021</div>
-        <h3>Cloud & Data Intern | Google Qwiklabs</h3>
-        <ul>
-            <li>Gained hands-on experience with GCP, Kubernetes, and BigQuery.</li>
-            <li>Built ML workflows using TensorFlow on cloud platforms.</li>
-        </ul>
-    </div>
+            <div class="project-card">
+                <div class="project-meta">
+                    <h3>Fraud Detection System</h3>
+                    <span class="tech-stack">Scala | ML Algorithms | Real-Time</span>
+                </div>
+                <p>Developed a scalable data processing workflow for financial transactions. Implemented anomaly-detection ML algorithms utilizing distributed frameworks to handle high-volume transaction data with low latency.</p>
+            </div>
+        </section>
 
-    <footer>
-        <p>Hyderabad, India | +91 7386091468 | KVasishtReddy@gmail.com</p>
-    </footer>
-</div>
+        <section id="experience">
+            <h2 class="section-title">Professional Timeline</h2>
+            
+            <div class="timeline-item">
+                <div class="role">Data Engineer</div>
+                <span class="company">Viswam Edutech Pvt Ltd | Feb 2025 - Present</span>
+                <p>Designing and optimizing end-to-end data pipelines for publishing workflows. Integrated multi-source data (sales, inventory, delivery) into unified datasets and enhanced warehousing schemas using PostgreSQL and AWS Redshift.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="role">ML Data Engineer</div>
+                <span class="company">Brain-O-Vision | Jan 2022 - Aug 2022</span>
+                <p>Built ML data pipelines with Python/Pandas, automating preprocessing to reduce prep time. Orchestrated workflows using Airflow and processed unstructured data from finance and healthcare sectors.</p>
+            </div>
+            
+             <div class="timeline-item">
+                <div class="role">Cloud & Data Intern</div>
+                <span class="company">Google Qwiklabs | Feb 2021 - Dec 2021</span>
+                <p>Gained hands-on distributed processing experience with GCP, Kubernetes, and BigQuery. Built ML workflows using TensorFlow.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Vasisht Reddy K | +91 7386091468 | KVasishtReddy@gmail.com</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Built with Clean Code & HTML5</p>
+        </footer>
+    </div>
 
 </body>
 </html>
