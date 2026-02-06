@@ -1,182 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasisht Reddy K | Data Engineer</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8; /* Sky blue */
-            --accent-hover: #0ea5e9;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
-        
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        
-        /* Layout */
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        
-        /* Header */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
-        .nav-links a { margin-left: 20px; color: var(--text-secondary); font-weight: 500; }
-        .nav-links a:hover { color: var(--accent); }
-
-        /* Hero Section */
-        .hero { padding: 60px 0; display: flex; align-items: center; gap: 40px; }
-        .hero-content { flex: 2; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
-        .hero span { color: var(--accent); }
-        .hero p { color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 30px; }
-        .btn { display: inline-block; padding: 12px 30px; background: var(--accent); color: #000; font-weight: bold; border-radius: 5px; }
-        .btn:hover { background: var(--accent-hover); }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); margin-left: 10px; }
-
-        /* Skills Grid (The Pipeline View) */
-        .section-title { font-size: 2rem; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 15px; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 80px; }
-        .skill-card { background: var(--card-bg); padding: 25px; border-radius: 10px; border-top: 3px solid var(--accent); }
-        .skill-card h3 { margin-bottom: 15px; }
-        .skill-tags span { display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; margin: 0 5px 5px 0; }
-
-        /* Projects (Case Studies) */
-        .project-card { display: flex; flex-direction: column; background: var(--card-bg); margin-bottom: 30px; border-radius: 10px; overflow: hidden; padding: 30px; }
-        .project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .tech-stack { font-family: 'Courier New', monospace; color: var(--accent); font-size: 0.9rem; }
-        
-        /* Experience Timeline */
-        .timeline-item { border-left: 2px solid var(--card-bg); padding-left: 30px; margin-bottom: 40px; position: relative; }
-        .timeline-item::before { content: ''; width: 12px; height: 12px; background: var(--accent); position: absolute; left: -7px; top: 5px; border-radius: 50%; }
-        .role { font-size: 1.3rem; font-weight: bold; }
-        .company { color: var(--text-secondary); margin-bottom: 10px; display: block; }
-
-        /* Footer */
-        footer { text-align: center; padding: 50px 0; color: var(--text-secondary); border-top: 1px solid var(--card-bg); margin-top: 50px; }
-
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasisht Reddy | Data Engineer</title>
+  <meta name="description" content="AWS Data Engineer portfolio – Python, PySpark, SQL, AWS Glue, EMR, ETL pipelines" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { color: #38bdf8; text-decoration: none; }
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #0f172a);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      max-width: 700px;
+      margin: auto;
+      color: #94a3b8;
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #1e293b;
+      padding-bottom: 10px;
+    }
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #020617;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #020617;
+      color: #64748b;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="logo">VRK.Data</div>
-            <nav class="nav-links">
-                <a href="#skills">Stack</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="mailto:KVasishtReddy@gmail.com">Contact</a>
-            </nav>
-        </header>
+<header>
+  <h1>Vasisht Reddy K</h1>
+  <p>AWS Data Engineer focused on building reliable ETL pipelines, scalable data platforms, and analytics-ready datasets using Python, PySpark, SQL, and AWS.</p>
+  <p>
+    <a href="mailto:KVasishtReddy@gmail.com">Email</a> ·
+    <a href="https://www.linkedin.com/in/vasisht-reddy-karra" target="_blank">LinkedIn</a> ·
+    <a href="https://github.com/" target="_blank">GitHub</a>
+  </p>
+</header>
 
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Building High-Performance <br><span>Data Pipelines</span></h1>
-                <p>
-                    I am Vasisht Reddy K. A Data Engineer specializing in Cloud ETL (AWS/GCP), 
-                    Distributed Systems (Spark), and Workflow Orchestration (Airflow).
-                    Turning raw chaos into actionable insights.
-                </p>
-                <a href="#" class="btn">Download Resume</a>
-                <a href="https://linkedin.com" class="btn btn-outline">LinkedIn</a>
-            </div>
-            <div style="font-family: monospace; color: var(--accent); background: var(--card-bg); padding: 20px; border-radius: 10px;">
-                > git commit -m "optimize_etl"<br>
-                > deploy pipeline --target=prod<br>
-                > status: <span style="color: #4ade80">HEALTHY</span><br>
-                > processing: 1.2TB/day
-            </div>
-        </section>
+<section>
+  <h2>About Me</h2>
+  <p>
+    I am a Data Engineer with hands-on experience designing and maintaining AWS-based data pipelines. My work focuses on ingesting, transforming, and modeling data for business analytics and reporting. I enjoy solving data reliability and performance challenges in distributed systems.
+  </p>
+</section>
 
-        <section id="skills">
-            <h2 class="section-title">Technical Arsenal</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Processing & Compute</h3>
-                    <div class="skill-tags">
-                        <span>Apache Spark</span>
-                        <span>Python (Pandas/NumPy)</span>
-                        <span>Scala</span>
-                        <span>Hadoop</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Cloud Infrastructure</h3>
-                    <div class="skill-tags">
-                        <span>AWS (Glue, Redshift, EMR)</span>
-                        <span>GCP (BigQuery, Compute)</span>
-                        <span>Docker/Kubernetes</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Orchestration & DB</h3>
-                    <div class="skill-tags">
-                        <span>Apache Airflow</span>
-                        <span>PostgreSQL</span>
-                        <span>MongoDB</span>
-                        <span>SQL Optimization</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2 class="section-title">Engineered Solutions</h2>
-            
-            <div class="project-card">
-                <div class="project-meta">
-                    <h3>Urban Traffic Flow Optimization System</h3>
-                    <span class="tech-stack">Spark | Distributed Computing | Python</span>
-                </div>
-                <p>Designed high-performance data pipelines to process large-scale traffic datasets. Implemented real-time traffic simulation algorithms using distributed computing, leveraging Apache Spark to significantly improve system efficiency and reduce computation time.</p>
-            </div>
-
-            <div class="project-card">
-                <div class="project-meta">
-                    <h3>Fraud Detection System</h3>
-                    <span class="tech-stack">Scala | ML Algorithms | Real-Time</span>
-                </div>
-                <p>Developed a scalable data processing workflow for financial transactions. Implemented anomaly-detection ML algorithms utilizing distributed frameworks to handle high-volume transaction data with low latency.</p>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2 class="section-title">Professional Timeline</h2>
-            
-            <div class="timeline-item">
-                <div class="role">Data Engineer</div>
-                <span class="company">Viswam Edutech Pvt Ltd | Feb 2025 - Present</span>
-                <p>Designing and optimizing end-to-end data pipelines for publishing workflows. Integrated multi-source data (sales, inventory, delivery) into unified datasets and enhanced warehousing schemas using PostgreSQL and AWS Redshift.</p>
-            </div>
-
-            <div class="timeline-item">
-                <div class="role">ML Data Engineer</div>
-                <span class="company">Brain-O-Vision | Jan 2022 - Aug 2022</span>
-                <p>Built ML data pipelines with Python/Pandas, automating preprocessing to reduce prep time. Orchestrated workflows using Airflow and processed unstructured data from finance and healthcare sectors.</p>
-            </div>
-            
-             <div class="timeline-item">
-                <div class="role">Cloud & Data Intern</div>
-                <span class="company">Google Qwiklabs | Feb 2021 - Dec 2021</span>
-                <p>Gained hands-on distributed processing experience with GCP, Kubernetes, and BigQuery. Built ML workflows using TensorFlow.</p>
-            </div>
-        </section>
-
-        <footer>
-            <p>Vasisht Reddy K | +91 7386091468 | KVasishtReddy@gmail.com</p>
-            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Built with Clean Code & HTML5</p>
-        </footer>
+<section>
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="card">
+      <h3>Languages</h3>
+      <p>Python, SQL, PySpark, Scala</p>
     </div>
+    <div class="card">
+      <h3>AWS</h3>
+      <p>S3, Glue, EMR, Lambda, Athena, CloudWatch, Redshift</p>
+    </div>
+    <div class="card">
+      <h3>Big Data</h3>
+      <p>Apache Spark, Hadoop, Hive, Distributed Processing</p>
+    </div>
+    <div class="card">
+      <h3>Tools</h3>
+      <p>Airflow, Git/GitHub, CI/CD, Docker</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Urban Traffic Flow Optimization</h3>
+      <p>Built Spark-based pipelines to process large traffic datasets and support real-time and batch analytics.</p>
+    </div>
+    <div class="card">
+      <h3>Financial Fraud Detection</h3>
+      <p>Developed scalable data workflows to process high-volume transaction data for fraud detection models.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <div class="card">
+    <h3>Data Engineer – Viswam Edutech</h3>
+    <p>Designed and maintained AWS data pipelines using Glue, S3, EMR, and SQL to support analytics and reporting.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Vasisht Reddy · Built with HTML & hosted on GitHub Pages
+</footer>
 
 </body>
 </html>
