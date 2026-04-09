@@ -180,4 +180,72 @@
             </div>
         </section>
 
-        <section id="projects
+        <section id="projects">
+            <h2>Key Projects</h2>
+            <div class="card">
+                <div class="card-header">
+                    <span class="company">Viswam Edutech Online Exam (LAN-Edition)</span>
+                </div>
+                <p>Designed and deployed a high-performance examination portal for Local Area Networks (LAN), ensuring zero packet loss and 100% data integrity during large-scale testing.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="company">Belly Balance: Health & Nutrition Tracker</span>
+                </div>
+                <p>Built a comprehensive health application that tracks daily calories, oxidants, and antioxidants. Implemented a smart recommendation engine for healthy dietary alternatives to prevent chronic diseases.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="company">Urban Traffic Flow Optimization</span> </div>
+                <p>Engineered pipelines using Spark Streaming to process 1.2 million data points per second for real-time traffic simulation. </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Python</span><span class="skill-tag">SQL</span> <span class="skill-tag">Apache Spark</span><span class="skill-tag">PySpark</span> <span class="skill-tag">AWS (S3, Glue, Redshift)</span> <span class="skill-tag">GCP (BigQuery)</span> <span class="skill-tag">Airflow</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span> </div>
+        </section>
+    </div>
+
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Back to Top Logic
+        window.onscroll = function() {
+            const btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
