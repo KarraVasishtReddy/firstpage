@@ -3,188 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasisht Reddy K - Resume</title>
+    <title>Vasisht Reddy K | Interactive Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #ffffff;
+            --text: #1f2937;
+            --secondary-bg: #f3f4f6;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --secondary-bg: #1e293b;
+            --card-bg: #1e293b;
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.5;
-            color: #333;
-            max-width: 850px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
         }
-        h1 {
-            text-align: center;
-            margin-bottom: 5px;
-            color: #000;
-        }
-        .contact-info {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: #0044cc;
-            margin: 0 5px;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            text-transform: uppercase;
-            font-size: 1.2em;
-            margin-top: 20px;
-            padding-bottom: 3px;
-        }
-        h3 {
-            margin: 10px 0 5px 0;
-            font-size: 1.1em;
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
-        .job-title {
-            font-style: italic;
-            font-weight: bold;
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
-        .date {
-            font-weight: normal;
-            font-style: italic;
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--secondary-bg);
+            color: var(--text);
+            font-size: 0.8rem;
         }
-        ul {
-            margin: 5px 0 10px 20px;
-            padding: 0;
+
+        /* Hero Section */
+        header { padding: 80px 0 40px; text-align: center; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: var(--primary); font-weight: 600; }
+        .contact { margin-top: 20px; font-size: 0.9rem; }
+
+        /* Sections */
+        section { padding: 60px 0; border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(20px); transition: 0.6s all ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        h2 { font-size: 1.8rem; margin-bottom: 30px; display: flex; align-items: center; }
+        h2::after { content: ''; flex: 1; height: 1px; background: var(--border); margin-left: 20px; }
+
+        /* Skills Tags */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: var(--secondary-bg);
+            padding: 6px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
         }
-        li {
-            margin-bottom: 4px;
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: var(--transition);
         }
-        .skills-category {
-            font-weight: bold;
-        }
-        .citation {
-            font-size: 0.8em;
-            color: #666;
-            vertical-align: super;
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .company { font-weight: 700; font-size: 1.1rem; }
+        .date { font-size: 0.85rem; color: #64748b; }
+        .job-title { font-style: italic; color: var(--primary); margin-bottom: 15px; }
+        ul { padding-left: 20px; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+
+        /* Floating Back to Top */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Vasisht Reddy K [cite: 1]</h1>
-        <div class="contact-info">
-            +91 7386091468 | KVasishtReddy@gmail.com [cite: 2] <br>
-            <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Portfolio</a> [cite: 4]
+    <nav>
+        <div class="container" style="display:flex; justify-content: space-between; align-items:center; width: 100%;">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Mode</button>
         </div>
-    </header>
+    </nav>
 
-    <section>
-        <h2>Professional Summary [cite: 3]</h2>
-        <p>
-            Data Engineer with expertise in designing and optimizing cloud-based ETL pipelines using Python, SQL, Spark, and Airflow[cite: 5]. 
-            Performance-driven professional with a proven track record of migrating legacy workflows to scalable AWS and GCP environments[cite: 6]. 
-            Specialized in improving ingestion performance by 45% and ensuring 99.9% data reliability through automated validation and modeling[cite: 7]. 
-            Skilled at integrating diverse data sources into analytics-ready datasets to support end-to-end pipeline reliability[cite: 8].
-        </p>
-    </section>
+    <div class="container">
+        <header>
+            <h1>Vasisht Reddy K</h1> <p class="subtitle">Data Engineer</p> <div class="contact">
+                +91 7386091468 | KVasishtReddy@gmail.com <br>
+                LinkedIn | GitHub | Portfolio
+            </div>
+        </header>
 
-    <section>
-        <h2>Technical Skills [cite: 9]</h2>
-        <ul>
-            <li><span class="skills-category">Programming:</span> Python, SQL, Scala, Java, C, JavaScript, HTML/CSS, Angular [cite: 10]</li>
-            <li><span class="skills-category">Data Engineering:</span> Apache Spark, Hadoop, Hive, Airflow, ETL/ELT Pipelines, PySpark, Big Data Analytics, Machine Learning [cite: 11]</li>
-            <li><span class="skills-category">Data Architecture:</span> Data Modeling, Data Processing Workflows, Data Quality Monitoring, Automated Testing Frameworks [cite: 11]</li>
-            <li><span class="skills-category">Databases:</span> PostgreSQL, MySQL, MongoDB, RDBMS, PL/SQL, GraphQL [cite: 11]</li>
-            <li><span class="skills-category">Cloud Platforms:</span> AWS (S3, Lambda, Glue, EMR, Redshift), GCP (BigQuery, Compute Engine) [cite: 12]</li>
-            <li><span class="skills-category">DevOps & Analytics:</span> Git, CI/CD, JIRA, Docker, Kubernetes, Pandas, NumPy, Matplotlib, Scikit-learn, Keras, Power BI [cite: 13]</li>
-        </ul>
-    </section>
+        <section id="about">
+            <h2>Summary</h2>
+            <p>Data Engineer with expertise in designing and optimizing cloud-based ETL pipelines using Python, SQL, Spark, and Airflow. Specialized in improving ingestion performance by 45% and ensuring 99.9% data reliability through automated validation and modeling. </p>
+        </section>
 
-    <section>
-        <h2>Professional Experience [cite: 14]</h2>
-        
-        <h3>
-            <span>Viswam Edutech Pvt Ltd | Data Engineer [cite: 15]</span>
-            <span class="date">Feb 2025 - Present [cite: 16]</span>
-        </h3>
-        <ul>
-            <li>Optimized Apache Spark-based ETL workflows for the Viswam Edutech Exam Portal, increasing data ingestion throughput by 45% and reducing storage costs by 20% through Parquet partitioning[cite: 17].</li>
-            <li>Engineered a unified data lake on AWS S3 that integrated 10+ disparate sources, including OCR-processed exam data, sales, inventory, and customer analytics into unified, analytics-ready datasets[cite: 18].</li>
-            <li>Architected Star Schemas in PostgreSQL for data modeling, which reduced complex query execution time by 60% and enhanced business decision-making accuracy[cite: 19].</li>
-            <li>Evaluated and implemented pipeline automation tools, leveraging Big Data analytics to ensure strict compliance with security and privacy standards[cite: 20].</li>
-            <li>Implemented an automated Data Quality Framework, reducing production processing errors by 90% through enforced validation, quality checks, and real-time monitoring[cite: 21].</li>
-        </ul>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="card">
+                <div class="card-header">
+                    <span class="company">Viswam Edutech Pvt Ltd</span> <span class="date">Feb 2025 - Present</span> </div>
+                <div class="job-title">Data Engineer</div>
+                <ul>
+                    <li>Optimized Spark-based ETL workflows, increasing data ingestion throughput by 45%. </li>
+                    <li>Engineered a unified data lake on AWS S3 integrating 10+ disparate sources. </li>
+                    <li>Architected Star Schemas in PostgreSQL, reducing query time by 60%. </li>
+                </ul>
+            </div>
 
-        <h3>
-            <span>Brain-O-Vision | ML Data Engineer [cite: 22]</span>
-            <span class="date">Jan 2022 - Aug 2022 [cite: 23]</span>
-        </h3>
-        <ul>
-            <li>Automated ML preprocessing pipelines with Python, Pandas, and NumPy, reducing manual data preparation time from 12 hours to 45 minutes weekly[cite: 24].</li>
-            <li>Developed ETL pipelines using PySpark to process over 500GB of daily log data from finance, healthcare, and e-commerce sectors[cite: 25].</li>
-            <li>Applied statistical modeling and clustering to extract actionable insights, supporting cross-functional analytics teams[cite: 26].</li>
-            <li>Orchestrated 50+ DAGs in Apache Airflow for workflow automation, identifying and integrating new data sources to maintain a pipeline uptime of 99.5%[cite: 27].</li>
-        </ul>
+            <div class="card">
+                <div class="card-header">
+                    <span class="company">Brain-O-Vision</span> <span class="date">Jan 2022 - Aug 2022</span> </div>
+                <div class="job-title">ML Data Engineer</div>
+                <ul>
+                    <li>Automated ML preprocessing pipelines, reducing manual time by 90%+. </li>
+                    <li>Developed ETL pipelines using PySpark for 500GB+ of daily log data. </li>
+                </ul>
+            </div>
+        </section>
 
-        <h3>
-            <span>Google Qwiklabs | Cloud & Data Intern [cite: 28]</span>
-            <span class="date">Feb 2021 - Dec 2021 [cite: 29]</span>
-        </h3>
-        <ul>
-            <li>Gained hands-on experience with GCP, Kubernetes, and BigQuery for distributed and cloud-based data processing[cite: 30].</li>
-            <li>Completed multi-cloud projects involving complex Big Data queries across AWS and GCP environments[cite: 31].</li>
-            <li>Built ML workflows using TensorFlow on cloud platforms as part of advanced lab assignments[cite: 32].</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Projects [cite: 33]</h2>
-        
-        <h3>Viswam Edutech Online Exam Portal (LAN-Based)</h3>
-        <ul>
-            <li>Engineered a high-concurrency examination system for local-area networks (LAN), ensuring stable data capture and zero packet loss during large-scale testing events.</li>
-            <li>Developed a synchronized local database architecture using SQL to manage real-time student responses and session logs, ensuring 100% data integrity in offline environments.</li>
-        </ul>
-
-        <h3>Belly Balance: Nutritional & Health Tracker</h3>
-        <ul>
-            <li>Built a health-tracking application using Python to monitor daily caloric intake and analyze the balance between nutritional oxidants and antioxidants.</li>
-            <li>Implemented a recommendation engine that suggests healthy dietary alternatives based on user data to proactively prevent chronic diseases.</li>
-            <li>Integrated automated data processing workflows to provide users with real-time insights into their nutritional health and long-term wellness trends.</li>
-        </ul>
-
-        <h3>Urban Traffic Flow Optimization System [cite: 34]</h3>
-        <ul>
-            <li>Engineered high-performance pipelines using Apache Spark Streaming to process 1.2 million traffic data points per second[cite: 35].</li>
-            <li>Implemented real-time traffic simulation algorithms using distributed computing, reducing system computation time and improving efficiency[cite: 36].</li>
-        </ul>
-
-        <h3>Fraud Detection System for Financial Transactions [cite: 37]</h3>
-        <ul>
-            <li>Developed a real-time detection workflow using Scala and Kafka, identifying fraudulent patterns with 94% accuracy[cite: 38].</li>
-            <li>Utilized distributed frameworks to analyze high-volume transaction data with a processing latency of under 200ms[cite: 39].</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Education [cite: 40]</h2>
-        <h3>
-            <span>University of North Texas | Master of Science, Computer Science [cite: 41]</span>
-            <span class="date">Sep 2022 - May 2024 [cite: 46]</span>
-        </h3>
-        <h3>
-            <span>Vardhaman College of Engineering | B.Tech, Computer Science [cite: 42]</span>
-            <span class="date">Aug 2018 - May 2022 [cite: 47]</span>
-        </h3>
-    </section>
-
-    <section>
-        <h2>Certifications [cite: 43]</h2>
-        <ul>
-            <li>Google Cloud Skill Badges & Quests: Kubernetes, Big Data, TensorFlow (Mar 2024) [cite: 44]</li>
-            <li>AWS Cloud Fundamentals: Hands-on Experience (Oct 2023) [cite: 45]</li>
-        </ul>
-    </section>
-
-</body>
-</html>
+        <section id="projects
