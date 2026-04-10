@@ -4,202 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vasisht Reddy K | Data Engineer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #64748b;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #38bdf8;
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
         
-        /* Navigation */
-        nav { background: var(--dark); color: white; padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
-        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent); }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header */
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { font-size: 2.8rem; color: var(--primary); letter-spacing: -0.02em; }
+        .contact-info { margin-top: 15px; color: var(--text-muted); font-size: 1rem; }
+        .contact-info span { margin: 0 10px; }
+        .links { margin-top: 15px; }
+        .links a { color: var(--accent); text-decoration: none; font-weight: 600; margin: 0 12px; transition: opacity 0.2s; }
+        .links a:hover { opacity: 0.8; }
 
-        /* Hero Section */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 0 10%; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: var(--secondary); max-width: 700px; margin-bottom: 20px; }
-        .hero .stats { display: flex; gap: 30px; margin-top: 30px; }
-        .stat-item { background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 8px; border-bottom: 3px solid var(--accent); }
-        .stat-item span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        /* Sections */
+        .section { background: var(--card); padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #e2e8f0; }
+        h2 { font-size: 1.4rem; color: var(--primary); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.05em; border-left: 4px solid var(--accent); padding-left: 15px; }
 
-        /* Section Styling */
-        section { padding: 80px 10%; }
-        h2 { font-size: 2rem; margin-bottom: 40px; text-align: center; position: relative; }
-        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        /* Summary & Highlights */
+        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 25px; }
+        .highlight-card { background: #f1f5f9; padding: 20px; border-radius: 12px; text-align: center; }
+        .highlight-card strong { display: block; font-size: 1.8rem; color: var(--accent); line-height: 1.2; }
+        .highlight-card span { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
 
         /* Skills */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .skill-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .skill-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .skill-card ul { list-style: none; font-size: 0.9rem; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .skill-cat strong { display: block; color: var(--primary); margin-bottom: 8px; font-size: 0.95rem; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #eef2ff; color: #4338ca; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
 
         /* Experience & Projects */
-        .card { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-left: 5px solid var(--primary); }
-        .card h3 { margin-bottom: 5px; display: flex; justify-content: space-between; }
-        .card .date { font-size: 0.9rem; color: var(--secondary); }
-        .card ul { margin-top: 15px; padding-left: 20px; }
-        .card li { margin-bottom: 8px; font-size: 0.95rem; }
+        .item { margin-bottom: 35px; }
+        .item:last-child { margin-bottom: 0; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+        .item-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+        .item-org { color: var(--accent); font-weight: 600; font-size: 1rem; }
+        .item-date { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+        
+        ul { list-style-type: none; }
+        li { position: relative; padding-left: 20px; margin-bottom: 10px; font-size: 0.95rem; color: #475569; }
+        li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
 
-        /* Contact/Footer */
-        footer { background: var(--dark); color: white; padding: 50px 10% 20px; text-align: center; }
-        .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
-        .social-links a:hover { color: var(--accent); }
-        .contact-info { margin: 20px 0; font-size: 0.9rem; }
+        /* Education & Certs */
+        .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .cert-list { columns: 1; list-style: none; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero .stats { flex-direction: column; }
-            nav ul { display: none; }
+        @media (max-width: 640px) {
+            .skills-grid, .edu-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .item-header { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">VR.K</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero">
+<div class="container">
+    <header>
         <h1>Vasisht Reddy K</h1>
-        <p>Data Engineer with 3+ years of experience designing scalable ETL pipelines and big data solutions using Apache Spark, Airflow, and Cloud Platforms[cite: 5].</p>
-        <div class="stats">
-            <div class="stat-item"><span>45%</span> Ingestion Boost [cite: 6]</div>
-            <div class="stat-item"><span>500GB+</span> Daily Data [cite: 11]</div>
-            <div class="stat-item"><span>99.9%</span> Reliability [cite: 12]</div>
+        <div class="contact-info">
+            <span>+91 7386091468</span> | <span>KVasishtReddy@gmail.com</span>
         </div>
-        <div class="contact-info" style="margin-top: 30px; color: #cbd5e1;">
-            <i class="fas fa-envelope"></i> KVasishtReddy@gmail.com | <i class="fas fa-phone"></i> +91 7386091468 [cite: 2]
+        <div class="links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Portfolio</a>
         </div>
     </header>
 
-    <section id="skills">
-        <h2>Technical Expertise</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>Programming</h3>
-                <ul>
-                    <li>Python [cite: 14]</li>
-                    <li>SQL [cite: 14]</li>
-                    <li>Scala [cite: 14]</li>
-                </ul>
+    <section class="section">
+        <h2>Professional Summary</h2>
+        <p>Data Engineer with 3+ years of experience designing scalable ETL pipelines and big data solutions using Apache Spark, Airflow, and cloud platforms (AWS, GCP). Proven track record of improving data ingestion performance and ensuring high data reliability.</p>
+        
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <strong>45%</strong>
+                <span>ETL Performance Improvement</span>
             </div>
-            <div class="skill-card">
-                <h3>Data Engineering</h3>
-                <ul>
-                    <li>Apache Spark & PySpark [cite: 15]</li>
-                    <li>Apache Airflow [cite: 15]</li>
-                    <li>Kafka [cite: 15]</li>
-                    <li>ETL/ELT Pipelines [cite: 15]</li>
-                </ul>
+            <div class="highlight-card">
+                <strong>60%</strong>
+                <span>Query Time Reduction</span>
             </div>
-            <div class="skill-card">
-                <h3>Cloud & Tools</h3>
-                <ul>
-                    <li>AWS (S3, Glue, EMR) [cite: 16]</li>
-                    <li>GCP (BigQuery) [cite: 16]</li>
-                    <li>Docker & Kubernetes [cite: 18]</li>
-                </ul>
+            <div class="highlight-card">
+                <strong>500GB+</strong>
+                <span>Daily Data Processed</span>
             </div>
-            <div class="skill-card">
-                <h3>Databases</h3>
-                <ul>
-                    <li>PostgreSQL [cite: 17]</li>
-                    <li>MongoDB [cite: 17]</li>
-                    <li>Redshift [cite: 16]</li>
-                </ul>
+            <div class="highlight-card">
+                <strong>99.9%</strong>
+                <span>Pipeline Reliability</span>
             </div>
         </div>
     </section>
 
-    <section id="experience" style="background: #f1f5f9;">
+    <section class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-cat">
+                <strong>Programming</strong>
+                <div class="skill-tags">
+                    <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Scala</span>
+                </div>
+            </div>
+            <div class="skill-cat">
+                <strong>Data Engineering</strong>
+                <div class="skill-tags">
+                    <span class="tag">Apache Spark</span><span class="tag">PySpark</span><span class="tag">Airflow</span><span class="tag">Kafka</span><span class="tag">ETL/ELT</span>
+                </div>
+            </div>
+            <div class="skill-cat">
+                <strong>Cloud Platforms</strong>
+                <div class="skill-tags">
+                    <span class="tag">AWS (S3, Glue, EMR, Redshift)</span><span class="tag">GCP (BigQuery)</span>
+                </div>
+            </div>
+            <div class="skill-cat">
+                <strong>Tools & DevOps</strong>
+                <div class="skill-tags">
+                    <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">CI/CD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
         <h2>Professional Experience</h2>
         
-        <div class="card">
-            <h3>Data Engineer <span>Viswam Edutech Pvt Ltd</span></h3>
-            <div class="date">Feb 2025 - Present [cite: 21]</div>
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">Data Engineer</span>
+                <span class="item-date">Feb 2025 – Present</span>
+            </div>
+            <div class="item-org">Viswam Edutech Pvt Ltd</div>
             <ul>
-                <li>Optimized Spark ETL pipelines, increasing throughput by 45% and reducing storage costs by 20%[cite: 23].</li>
-                <li>Built a scalable data lake on AWS S3 integrating 10+ data sources[cite: 23].</li>
-                <li>Designed star schema data models in PostgreSQL, reducing query time by 60%[cite: 24].</li>
-                <li>Implemented automated data quality framework, reducing production errors by 90%[cite: 25].</li>
+                <li>Optimized Apache Spark ETL pipelines, increasing data ingestion throughput by 45% and reducing storage costs by 20%.</li>
+                <li>Built a scalable data lake on AWS S3 integrating 10+ data sources for centralized analytics.</li>
+                <li>Designed star schema data models in PostgreSQL, reducing complex query execution time by 60%.</li>
+                <li>Implemented automated data quality framework, reducing production errors by 90%.</li>
             </ul>
         </div>
 
-        <div class="card">
-            <h3>ML Data Engineer <span>Brain-O-Vision</span></h3>
-            <div class="date">Jan 2022 - Aug 2022 [cite: 27]</div>
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">ML Data Engineer</span>
+                <span class="item-date">Jan 2022 – Aug 2022</span>
+            </div>
+            <div class="item-org">Brain-O-Vision</div>
             <ul>
-                <li>Developed ETL pipelines using PySpark to process 500GB+ daily log data[cite: 29].</li>
-                <li>Automated ML preprocessing pipelines, reducing manual effort by 90%[cite: 29].</li>
-                <li>Orchestrated 50+ Airflow DAGs ensuring 99.5% pipeline uptime[cite: 30].</li>
+                <li>Developed ETL pipelines using PySpark to process over 500GB of daily log data across finance and healthcare domains.</li>
+                <li>Automated ML preprocessing pipelines, reducing manual effort by 90%.</li>
+                <li>Orchestrated 50+ Airflow DAGs ensuring 99.5% pipeline uptime.</li>
             </ul>
         </div>
     </section>
 
-    <section id="projects">
+    <section class="section">
         <h2>Key Projects</h2>
-        <div class="card">
-            <h3>Real-Time Traffic Flow Optimization System</h3>
+        <div class="item">
+            <div class="item-title">Real-Time Traffic Flow Optimization System</div>
             <ul>
-                <li>Built Spark Streaming pipelines processing 1.2 million events per second[cite: 33].</li>
-                <li>Implemented real-time analytics using distributed computing to improve efficiency[cite: 34].</li>
+                <li>Built Spark Streaming pipelines processing 1.2 million events per second.</li>
+                <li>Implemented real-time analytics to improve traffic efficiency using distributed computing.</li>
             </ul>
         </div>
-        <div class="card">
-            <h3>Fraud Detection System</h3>
+        <div class="item">
+            <div class="item-title">Fraud Detection System</div>
             <ul>
-                <li>Developed real-time pipeline using Scala and Kafka with 94% accuracy[cite: 36].</li>
-                <li>Processed high-volume transactions with latency under 200ms[cite: 36].</li>
+                <li>Developed real-time fraud detection pipeline using Scala and Kafka with 94% accuracy.</li>
+                <li>Processed high-volume transaction data with latency under 200ms.</li>
             </ul>
         </div>
     </section>
 
-    <section id="education" style="background: #f1f5f9;">
+    <section class="section">
         <h2>Education & Certifications</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div class="edu-grid">
             <div>
-                <h3>Education</h3>
-                <p><strong>MS in Computer Science</strong><br>University of North Texas [cite: 40, 41]</p>
-                <p style="margin-top: 15px;"><strong>B.Tech in Computer Science</strong><br>Vardhaman College of Engineering [cite: 42]</p>
+                <div class="item" style="margin-bottom: 20px;">
+                    <div class="item-title">MS, Computer Science</div>
+                    <div class="item-date">University of North Texas</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">B.Tech, Computer Science</div>
+                    <div class="item-date">Vardhaman College of Engineering</div>
+                </div>
             </div>
             <div>
-                <h3>Key Certifications [cite: 44-53]</h3>
-                <ul style="font-size: 0.9rem; padding-left: 20px;">
-                    <li>Data Engineering Master Program</li>
+                <ul class="cert-list">
+                    <li><li>Data Engineering Master Program</li>
                     <li>Cloud Data Engineering (AWS + GCP)</li>
                     <li>Real-Time Data Engineering (Kafka & Spark)</li>
-                    <li>SQL Mastery & Power BI Professionals</li>
+                    <li>Advanced SQL for Data Engineers</li>
+                    <li>Data Pipeline & ETL Certification</li>
                 </ul>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fas fa-globe"></i></a>
-        </div>
-        <p style="margin-top: 20px;">&copy; 2026 Vasisht Reddy K. Built for Data Engineering Excellence.</p>
-    </footer>
+</div>
 
 </body>
 </html>
