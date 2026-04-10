@@ -3,181 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasisht Reddy K | Interactive Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Vasisht Reddy K | Data Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #2563eb;
-            --bg: #ffffff;
-            --text: #1f2937;
-            --secondary-bg: #f3f4f6;
-            --card-bg: #ffffff;
-            --border: #e5e7eb;
-            --transition: all 0.3s ease;
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #38bdf8;
         }
 
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --secondary-bg: #1e293b;
-            --card-bg: #1e293b;
-            --border: #334155;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            transition: var(--transition);
-        }
-
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        
         /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            padding: 15px 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            background: var(--secondary-bg);
-            color: var(--text);
-            font-size: 0.8rem;
-        }
+        nav { background: var(--dark); color: white; padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
 
         /* Hero Section */
-        header { padding: 80px 0 40px; text-align: center; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.2rem; color: var(--primary); font-weight: 600; }
-        .contact { margin-top: 20px; font-size: 0.9rem; }
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 0 10%; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: var(--secondary); max-width: 700px; margin-bottom: 20px; }
+        .hero .stats { display: flex; gap: 30px; margin-top: 30px; }
+        .stat-item { background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 8px; border-bottom: 3px solid var(--accent); }
+        .stat-item span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--accent); }
 
-        /* Sections */
-        section { padding: 60px 0; border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(20px); transition: 0.6s all ease-out; }
-        section.visible { opacity: 1; transform: translateY(0); }
-        h2 { font-size: 1.8rem; margin-bottom: 30px; display: flex; align-items: center; }
-        h2::after { content: ''; flex: 1; height: 1px; background: var(--border); margin-left: 20px; }
+        /* Section Styling */
+        section { padding: 80px 10%; }
+        h2 { font-size: 2rem; margin-bottom: 40px; text-align: center; position: relative; }
+        h2::after { content: ''; width: 50px; height: 3px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
 
-        /* Skills Tags */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag {
-            background: var(--secondary-bg);
-            padding: 6px 15px;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border);
-        }
+        /* Skills */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .skill-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .skill-card ul { list-style: none; font-size: 0.9rem; }
 
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            transition: var(--transition);
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .company { font-weight: 700; font-size: 1.1rem; }
-        .date { font-size: 0.85rem; color: #64748b; }
-        .job-title { font-style: italic; color: var(--primary); margin-bottom: 15px; }
-        ul { padding-left: 20px; font-size: 0.95rem; }
-        li { margin-bottom: 8px; }
+        /* Experience & Projects */
+        .card { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-left: 5px solid var(--primary); }
+        .card h3 { margin-bottom: 5px; display: flex; justify-content: space-between; }
+        .card .date { font-size: 0.9rem; color: var(--secondary); }
+        .card ul { margin-top: 15px; padding-left: 20px; }
+        .card li { margin-bottom: 8px; font-size: 0.95rem; }
 
-        /* Floating Back to Top */
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        /* Contact/Footer */
+        footer { background: var(--dark); color: white; padding: 50px 10% 20px; text-align: center; }
+        .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent); }
+        .contact-info { margin: 20px 0; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .stats { flex-direction: column; }
+            nav ul { display: none; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container" style="display:flex; justify-content: space-between; align-items:center; width: 100%;">
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-            </div>
-            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Mode</button>
-        </div>
+        <div class="logo">VR.K</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
-        <header>
-            <h1>Vasisht Reddy K</h1> <p class="subtitle">Data Engineer</p> <div class="contact">
-                +91 7386091468 | KVasishtReddy@gmail.com <br>
-                LinkedIn | GitHub | Portfolio
-            </div>
-        </header>
+    <header class="hero">
+        <h1>Vasisht Reddy K</h1>
+        <p>Data Engineer with 3+ years of experience designing scalable ETL pipelines and big data solutions using Apache Spark, Airflow, and Cloud Platforms[cite: 5].</p>
+        <div class="stats">
+            <div class="stat-item"><span>45%</span> Ingestion Boost [cite: 6]</div>
+            <div class="stat-item"><span>500GB+</span> Daily Data [cite: 11]</div>
+            <div class="stat-item"><span>99.9%</span> Reliability [cite: 12]</div>
+        </div>
+        <div class="contact-info" style="margin-top: 30px; color: #cbd5e1;">
+            <i class="fas fa-envelope"></i> KVasishtReddy@gmail.com | <i class="fas fa-phone"></i> +91 7386091468 [cite: 2]
+        </div>
+    </header>
 
-        <section id="about">
-            <h2>Summary</h2>
-            <p>Data Engineer with expertise in designing and optimizing cloud-based ETL pipelines using Python, SQL, Spark, and Airflow. Specialized in improving ingestion performance by 45% and ensuring 99.9% data reliability through automated validation and modeling. </p>
-        </section>
-
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="card">
-                <div class="card-header">
-                    <span class="company">Viswam Edutech Pvt Ltd</span> <span class="date">Feb 2025 - Present</span> </div>
-                <div class="job-title">Data Engineer</div>
+    <section id="skills">
+        <h2>Technical Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>Programming</h3>
                 <ul>
-                    <li>Optimized Spark-based ETL workflows, increasing data ingestion throughput by 45%. </li>
-                    <li>Engineered a unified data lake on AWS S3 integrating 10+ disparate sources. </li>
-                    <li>Architected Star Schemas in PostgreSQL, reducing query time by 60%. </li>
+                    <li>Python [cite: 14]</li>
+                    <li>SQL [cite: 14]</li>
+                    <li>Scala [cite: 14]</li>
                 </ul>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="company">Brain-O-Vision</span> <span class="date">Jan 2022 - Aug 2022</span> </div>
-                <div class="job-title">ML Data Engineer</div>
+            <div class="skill-card">
+                <h3>Data Engineering</h3>
                 <ul>
-                    <li>Automated ML preprocessing pipelines, reducing manual time by 90%+. </li>
-                    <li>Developed ETL pipelines using PySpark for 500GB+ of daily log data. </li>
+                    <li>Apache Spark & PySpark [cite: 15]</li>
+                    <li>Apache Airflow [cite: 15]</li>
+                    <li>Kafka [cite: 15]</li>
+                    <li>ETL/ELT Pipelines [cite: 15]</li>
                 </ul>
             </div>
-        </section>
+            <div class="skill-card">
+                <h3>Cloud & Tools</h3>
+                <ul>
+                    <li>AWS (S3, Glue, EMR) [cite: 16]</li>
+                    <li>GCP (BigQuery) [cite: 16]</li>
+                    <li>Docker & Kubernetes [cite: 18]</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Databases</h3>
+                <ul>
+                    <li>PostgreSQL [cite: 17]</li>
+                    <li>MongoDB [cite: 17]</li>
+                    <li>Redshift [cite: 16]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <section id="projects
+    <section id="experience" style="background: #f1f5f9;">
+        <h2>Professional Experience</h2>
+        
+        <div class="card">
+            <h3>Data Engineer <span>Viswam Edutech Pvt Ltd</span></h3>
+            <div class="date">Feb 2025 - Present [cite: 21]</div>
+            <ul>
+                <li>Optimized Spark ETL pipelines, increasing throughput by 45% and reducing storage costs by 20%[cite: 23].</li>
+                <li>Built a scalable data lake on AWS S3 integrating 10+ data sources[cite: 23].</li>
+                <li>Designed star schema data models in PostgreSQL, reducing query time by 60%[cite: 24].</li>
+                <li>Implemented automated data quality framework, reducing production errors by 90%[cite: 25].</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>ML Data Engineer <span>Brain-O-Vision</span></h3>
+            <div class="date">Jan 2022 - Aug 2022 [cite: 27]</div>
+            <ul>
+                <li>Developed ETL pipelines using PySpark to process 500GB+ daily log data[cite: 29].</li>
+                <li>Automated ML preprocessing pipelines, reducing manual effort by 90%[cite: 29].</li>
+                <li>Orchestrated 50+ Airflow DAGs ensuring 99.5% pipeline uptime[cite: 30].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Key Projects</h2>
+        <div class="card">
+            <h3>Real-Time Traffic Flow Optimization System</h3>
+            <ul>
+                <li>Built Spark Streaming pipelines processing 1.2 million events per second[cite: 33].</li>
+                <li>Implemented real-time analytics using distributed computing to improve efficiency[cite: 34].</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Fraud Detection System</h3>
+            <ul>
+                <li>Developed real-time pipeline using Scala and Kafka with 94% accuracy[cite: 36].</li>
+                <li>Processed high-volume transactions with latency under 200ms[cite: 36].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education" style="background: #f1f5f9;">
+        <h2>Education & Certifications</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <h3>Education</h3>
+                <p><strong>MS in Computer Science</strong><br>University of North Texas [cite: 40, 41]</p>
+                <p style="margin-top: 15px;"><strong>B.Tech in Computer Science</strong><br>Vardhaman College of Engineering [cite: 42]</p>
+            </div>
+            <div>
+                <h3>Key Certifications [cite: 44-53]</h3>
+                <ul style="font-size: 0.9rem; padding-left: 20px;">
+                    <li>Data Engineering Master Program</li>
+                    <li>Cloud Data Engineering (AWS + GCP)</li>
+                    <li>Real-Time Data Engineering (Kafka & Spark)</li>
+                    <li>SQL Mastery & Power BI Professionals</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fas fa-globe"></i></a>
+        </div>
+        <p style="margin-top: 20px;">&copy; 2026 Vasisht Reddy K. Built for Data Engineering Excellence.</p>
+    </footer>
+
+</body>
+</html>
