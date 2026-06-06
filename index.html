@@ -3,416 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasisht Reddy K - AI/ML Engineer Portfolio</title>
+    <title>Vasisht Reddy K - Resume</title>
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
-            --secondary-gradient: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
-            --accent-gradient: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --text-dark: #2b2d42;
-            --text-light: #8d99ae;
-            --white: #ffffff;
+            --sidebar-bg: #0f172a;
+            --sidebar-text: #e2e8f0;
+            --sidebar-accent: #38bdf8;
+            --main-bg: #ffffff;
+            --main-text: #334155;
+            --main-heading: #0f172a;
+            --border-color: #cbd5e1;
+            --tech-bg: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            margin: 0;
+            background-color: #e2e8f0;
+            color: var(--main-text);
             padding: 40px 20px;
-            background: var(--bg-gradient);
         }
 
-        .container {
-            background-color: var(--white);
-            max-width: 950px;
+        .resume-wrapper {
+            display: flex;
+            max-width: 1100px;
             margin: 0 auto;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background-color: var(--main-bg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
             overflow: hidden;
+            flex-direction: row;
         }
 
-        header {
-            background: var(--primary-gradient);
-            padding: 50px 30px;
-            text-align: center;
-            color: var(--white);
-            position: relative;
+        /* --- SIDEBAR STYLES --- */
+        .sidebar {
+            width: 320px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 40px 30px;
+            flex-shrink: 0;
         }
 
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--secondary-gradient);
-        }
-
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 3em;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .subtitle {
-            font-size: 1.3em;
-            color: #e0eaff;
-            font-weight: 500;
-            margin-bottom: 25px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            font-size: 0.95em;
-        }
-
-        .contact-info span {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 8px 16px;
-            border-radius: 25px;
-            backdrop-filter: blur(5px);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .contact-info span:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .contact-info a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        section {
-            padding: 40px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            color: #3a0ca3;
-            font-size: 1.8em;
-            margin-top: 0;
-            margin-bottom: 25px;
-            display: inline-block;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background: var(--secondary-gradient);
-            border-radius: 2px;
-        }
-
-        p.summary-text {
-            font-size: 1.1em;
-            color: #4a4e69;
-            line-height: 1.8;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: minmax(180px, 1fr) 2.5fr;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .skill-category {
+        .profile-name {
+            font-size: 2.2em;
             font-weight: 700;
-            color: #f72585;
-            background: rgba(247, 37, 133, 0.1);
-            padding: 8px 15px;
-            border-radius: 8px;
-            display: inline-block;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
-        .experience-item, .project-item, .education-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 12px;
-            background: #f8f9fa;
-            border-left: 4px solid #4cc9f0;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .experience-item:hover, .project-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid #f72585;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .item-title {
-            font-weight: 800;
-            font-size: 1.25em;
-            color: #3a0ca3;
-        }
-
-        .item-date {
-            background: var(--accent-gradient);
-            color: var(--white);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
+        .profile-title {
+            color: var(--sidebar-accent);
+            font-size: 1.1em;
             font-weight: 600;
-            box-shadow: 0 2px 5px rgba(76, 201, 240, 0.3);
+            margin-bottom: 30px;
+            line-height: 1.4;
         }
 
-        ul {
-            margin: 0;
-            padding-left: 20px;
-            color: #4a4e69;
+        .contact-list {
+            list-style: none;
+            margin-bottom: 40px;
+            font-size: 0.9em;
         }
 
-        li {
-            margin-bottom: 8px;
+        .contact-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
         }
 
-        li::marker {
-            color: #f72585;
+        .contact-list a {
+            color: var(--sidebar-text);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .tech-stack {
-            font-size: 0.85em;
-            background: var(--primary-gradient);
-            color: var(--white);
-            padding: 8px 15px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: 500;
+        .contact-list a:hover {
+            color: var(--sidebar-accent);
+        }
+
+        .sidebar-heading {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-title {
+            color: var(--sidebar-accent);
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
-        .tech-stack strong {
-            color: #4cc9f0;
+
+        .skill-items {
+            font-size: 0.9em;
+            color: #94a3b8;
         }
 
         .cert-list {
             list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            font-size: 0.9em;
         }
 
         .cert-list li {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            margin-bottom: 15px;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .cert-list strong {
+            color: var(--sidebar-text);
+            display: block;
+        }
+
+        /* --- MAIN CONTENT STYLES --- */
+        .main-content {
+            flex: 1;
+            padding: 40px 50px;
+        }
+
+        .section-heading {
+            color: var(--main-heading);
+            font-size: 1.4em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            margin-top: 35px;
+        }
+
+        .main-content .section-heading:first-child {
+            margin-top: 0;
+        }
+
+        .summary-text {
+            font-size: 1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+        }
+
+        .timeline-header {
             display: flex;
-            align-items: center;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
         }
 
-        .cert-list li::before {
-            content: '🏆';
-            margin-right: 10px;
-            font-size: 1.2em;
+        .item-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--main-heading);
         }
 
-        @media (max-width: 768px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .item-header {
+        .item-subtitle {
+            font-size: 1em;
+            font-weight: 600;
+            color: #0284c7;
+        }
+
+        .item-date {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .bullet-list {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .bullet-list li {
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .tech-stack {
+            margin-top: 10px;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #475569;
+            background-color: var(--tech-bg);
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .tech-stack span {
+            color: #0284c7;
+            margin-right: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .resume-wrapper {
                 flex-direction: column;
-                align-items: flex-start;
             }
-            header {
-                padding: 30px 20px;
+            .sidebar {
+                width: 100%;
+                padding: 30px;
             }
-            h1 {
-                font-size: 2.2em;
+            .main-content {
+                padding: 30px;
+            }
+            .timeline-header {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Vasisht Reddy K</h1>
-            <div class="subtitle">
-                AI/ML Engineer | Data Engineering | Cloud & Big Data
-            </div>
-            <div class="contact-info">
-                <span>📍 Hyderabad, India</span>
-                <span>📞 +91 73860 91468</span>
-                <span>✉️ <a href="mailto:KVasishtReddy@gmail.com">KVasishtReddy@gmail.com</a></span>
-                <span>🔗 <a href="https://linkedin.com/in/vasisht-reddy-karra" target="_blank">LinkedIn</a></span>
-                <span>💻 <a href="https://github.com/KarraVasisht" target="_blank">GitHub</a></span>
-            </div>
-        </header>
 
-        <section>
-            <h2>Professional Summary</h2>
-            <p class="summary-text">
-                AI/ML Engineer with 3+ years of experience in machine learning, data engineering, and scalable pipeline architecture. Skilled in model training, feature engineering, and MLOps practices across Python, TensorFlow, and Scikit-learn. Proficient in end-to-end model deployment, prompt engineering, and AI-driven backend optimization on GCP and AWS. Proven impact: 45% ETL throughput gains, 60% query speedups, 99.9% pipeline reliability.
-            </p>
-        </section>
+<div class="resume-wrapper">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="profile-name">Vasisht Reddy K</div>
+        <div class="profile-title">
+            AI/ML Engineer<br>
+            Machine Learning<br>
+            Data Engineering<br>
+            Cloud & Big Data
+        </div>
 
-        <section>
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">Languages</div>
-                <div>Python, SQL, Scala, JavaScript</div>
-                
-                <div class="skill-category">Big Data & Pipelines</div>
-                <div>Apache Spark, PySpark, Spark Streaming, Airflow, dbt</div>
-                
-                <div class="skill-category">Cloud & Databases</div>
-                <div>AWS S3, Glue, Redshift, GCP BigQuery, PostgreSQL, MongoDB, Supabase, MS SQL</div>
-                
-                <div class="skill-category">ML & AI</div>
-                <div>TensorFlow, Scikit-learn, MLOps, Pandas, NumPy, Feature Engineering, Model Deployment, LLMs</div>
-                
-                <div class="skill-category">DevOps & Tools</div>
-                <div>Docker, Kubernetes, CI/CD, React, Git, Next.js</div>
-            </div>
-        </section>
+        <ul class="contact-list">
+            <li>📍 Hyderabad, India</li>
+            <li>📞 +91 73860 91468</li>
+            <li>✉️ <a href="mailto:KVasishtReddy@gmail.com">KVasishtReddy@gmail.com</a></li>
+            <li>🔗 <a href="https://linkedin.com/in/vasisht-reddy-karra" target="_blank">linkedin.com/in/vasisht-reddy-karra</a></li>
+            <li>💻 <a href="https://github.com/KarraVasisht" target="_blank">github.com/KarraVasisht</a></li>
+        </ul>
 
-        <section>
-            <h2>Experience</h2>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">AI/ML Engineer | Viswam Edutech Pvt Ltd</div>
-                    <div class="item-date">Feb 2025 – Present</div>
+        <h2 class="sidebar-heading">Technical Skills</h2>
+        
+        <div class="skill-group">
+            <div class="skill-title">Languages</div>
+            <div class="skill-items">Python, SQL, Scala, JavaScript</div>
+        </div>
+
+        <div class="skill-group">
+            <div class="skill-title">Big Data & Pipelines</div>
+            <div class="skill-items">Apache Spark, PySpark, Spark Streaming, Airflow, dbt</div>
+        </div>
+
+        <div class="skill-group">
+            <div class="skill-title">Cloud & Databases</div>
+            <div class="skill-items">AWS S3, Glue, Redshift, GCP BigQuery, PostgreSQL, MongoDB, Supabase, MS SQL</div>
+        </div>
+
+        <div class="skill-group">
+            <div class="skill-title">ML & AI</div>
+            <div class="skill-items">TensorFlow, Scikit-learn, MLOps, Pandas, NumPy, Feature Engineering, Model Deployment, LLMs</div>
+        </div>
+
+        <div class="skill-group">
+            <div class="skill-title">DevOps & Tools</div>
+            <div class="skill-items">Docker, Kubernetes, CI/CD, React, Git, Next.js</div>
+        </div>
+
+        <h2 class="sidebar-heading">Certifications</h2>
+        <ul class="cert-list">
+            <li><strong>Certified AI-Driven Professional</strong> Be10x, 2026</li>
+            <li><strong>Data Engineering Master Program</strong> Coursera, 2023</li>
+            <li><strong>Cloud Data Engineering (AWS + GCP)</strong> Coursera, 2023</li>
+            <li><strong>Real-Time Data Engineering</strong> Kafka & Spark - Udemy, 2022</li>
+            <li><strong>Advanced SQL for Data Engineers</strong> DataCamp, 2022</li>
+            <li><strong>Data Pipeline & ETL Certification</strong> DataCamp, 2021</li>
+        </ul>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <main class="main-content">
+        
+        <h2 class="section-heading">Summary</h2>
+        <p class="summary-text">
+            AI/ML Engineer with 3+ years of experience in machine learning, data engineering, and scalable pipeline architecture. Skilled in model training, feature engineering, and MLOps practices across Python, TensorFlow, and Scikit-learn. Proficient in end-to-end model deployment, prompt engineering, and AI-driven backend optimization on GCP and AWS. Proven impact: 45% ETL throughput gains, 60% query speedups, 99.9% pipeline reliability.
+        </p>
+
+        <h2 class="section-heading">Experience</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="item-title">AI/ML Engineer</span> 
+                    <span class="item-subtitle">| Viswam Edutech Pvt Ltd</span>
                 </div>
-                <ul>
-                    <li>Enhanced Apache Spark ETL pipelines — 45% higher ingestion throughput, 20% lower cloud storage costs.</li>
-                    <li>Built a centralized AWS S3 data lake integrating 10+ disparate sources for cross-functional analytics.</li>
-                    <li>Designed star schema models in PostgreSQL, cutting complex query execution times by 60%.</li>
-                    <li>Developed secure Proctor Mode and portable JSON-based database for seamless exam management.</li>
-                    <li>Applied prompt engineering and LLM-based tooling to accelerate full-stack prototyping, cutting delivery time by 30%.</li>
-                    <li>Implemented MLOps workflows for model versioning, automated testing, and deployment pipelines on GCP.</li>
-                </ul>
+                <div class="item-date">Feb 2025 – Present</div>
             </div>
-
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">ML Data Engineer | Brain-O-Vision</div>
-                    <div class="item-date">Jan 2022 – Aug 2022</div>
-                </div>
-                <ul>
-                    <li>Processed 500 GB+ daily log data across finance and healthcare domains using PySpark distributed computing.</li>
-                    <li>Orchestrated 50+ Airflow DAGs at 99.5% uptime; automated feature engineering and ML preprocessing, reducing manual effort 90%.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">Cloud & Data Intern | Google Qwiklabs</div>
-                    <div class="item-date">Feb 2021 – Dec 2021</div>
-                </div>
-                <ul>
-                    <li>Hands-on with GCP, Kubernetes, and BigQuery for distributed and cloud-based data processing.</li>
-                    <li>Built and deployed deep learning workflows using TensorFlow; completed multi-cloud Big Data projects on AWS and GCP.</li>
-                    <li>Designed data ingestion pipelines using GCP Dataflow and Cloud Storage, reducing data load times by 35%.</li>
-                    <li>Gained hands-on exposure to model monitoring, A/B testing frameworks, and cloud-native MLOps tooling.</li>
-                    <li>Collaborated on a real-time streaming analytics dashboard integrating Pub/Sub and BigQuery for live reporting.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Key Projects</h2>
-            
-            <div class="project-item">
-                <div class="item-header">
-                    <div class="item-title">Belly Balance App (Health-Tech)</div>
-                </div>
-                <ul>
-                    <li>Full-stack data-driven application visualizing how dietary antioxidants neutralize carcinogenic radicals formed in fried foods, empowering users to make informed nutritional choices and proactively manage long-term dietary health risks.</li>
-                    <li>Built interactive dashboards on React + Supabase with real-time food intake tracking.</li>
-                    <li>Deployed an ML model recommending antioxidant-rich foods based on user health profile.</li>
-                    <li>Hosted on GCP Cloud Run for scalable, low-latency serving across mobile and web clients.</li>
-                </ul>
-                <div class="tech-stack"><strong>Tech:</strong> React, Next.js, Supabase, GCP Cloud Run, TensorFlow</div>
-            </div>
-
-            <div class="project-item">
-                <div class="item-header">
-                    <div class="item-title">Real-Time Traffic Optimization (Smart City)</div>
-                </div>
-                <ul>
-                    <li>Distributed streaming platform analyzing live traffic sensor data across an urban network to enable adaptive rerouting, congestion reduction, and faster emergency response.</li>
-                    <li>Spark Streaming pipelines processing 1.2M events/sec from IoT sensor network.</li>
-                    <li>Cut average commute time by 22% and emergency response time by 31%.</li>
-                    <li>Built ML-based traffic prediction models using TensorFlow for 5-minute ahead forecasting.</li>
-                </ul>
-                <div class="tech-stack"><strong>Tech:</strong> Python, Apache Spark, Spark Streaming, TensorFlow, PostgreSQL, Kubernetes</div>
-            </div>
-
-            <div class="project-item">
-                <div class="item-header">
-                    <div class="item-title">Fraud Detection System (FinSec)</div>
-                </div>
-                <ul>
-                    <li>Machine-learning-based fraud detection system flagging suspicious high-velocity transactions in near-real-time, helping financial systems intercept fraud patterns before settlement.</li>
-                    <li>Spark Streaming pipeline achieving sub-second scoring and 94% detection accuracy.</li>
-                    <li>Trained gradient-boosted ML models on 10M+ transactions for anomaly scoring.</li>
-                    <li>Reduced false-positive rate by 38% via continuous model retraining (MLOps).</li>
-                </ul>
-                <div class="tech-stack"><strong>Tech:</strong> Python, Spark Streaming, Scikit-learn, PostgreSQL, Docker</div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <div class="education-item">
-                <div class="item-header" style="margin-bottom: 0;">
-                    <div class="item-title">MS, Computer Science | University of North Texas</div>
-                    <div class="item-date">2024</div>
-                </div>
-            </div>
-            <div class="education-item" style="margin-bottom: 0;">
-                <div class="item-header" style="margin-bottom: 0;">
-                    <div class="item-title">B.Tech, Computer Science | Vardhaman College of Engineering</div>
-                    <div class="item-date">2022</div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Certifications</h2>
-            <ul class="cert-list">
-                <li>Certified AI-Driven Professional - Be10x, 2026</li>
-                <li>Data Engineering Master Program - Coursera, 2023</li>
-                <li>Cloud Data Engineering (AWS + GCP) - Coursera, 2023</li>
-                <li>Real-Time Data Engineering (Kafka & Spark) - Udemy, 2022</li>
-                <li>Advanced SQL for Data Engineers - DataCamp, 2022</li>
-                <li>Data Pipeline & ETL Certification - DataCamp, 2021</li>
+            <ul class="bullet-list">
+                <li>Enhanced Apache Spark ETL pipelines — 45% higher ingestion throughput, 20% lower cloud storage costs.</li>
+                <li>Built a centralized AWS S3 data lake integrating 10+ disparate sources for cross-functional analytics.</li>
+                <li>Designed star schema models in PostgreSQL, cutting complex query execution times by 60%.</li>
+                <li>Developed secure Proctor Mode and portable JSON-based database for seamless exam management.</li>
+                <li>Applied prompt engineering and LLM-based tooling to accelerate full-stack prototyping, cutting delivery time by 30%.</li>
+                <li>Implemented MLOps workflows for model versioning, automated testing, and deployment pipelines on GCP.</li>
             </ul>
-        </section>
-    </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="item-title">ML Data Engineer</span> 
+                    <span class="item-subtitle">| Brain-O-Vision</span>
+                </div>
+                <div class="item-date">Jan 2022 – Aug 2022</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Processed 500 GB+ daily log data across finance and healthcare domains using PySpark distributed computing.</li>
+                <li>Orchestrated 50+ Airflow DAGs at 99.5% uptime; automated feature engineering and ML preprocessing, reducing manual effort 90%.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="item-title">Cloud & Data Intern</span> 
+                    <span class="item-subtitle">| Google Qwiklabs</span>
+                </div>
+                <div class="item-date">Feb 2021 – Dec 2021</div>
+            </div>
+            <ul class="bullet-list">
+                <li>Hands-on with GCP, Kubernetes, and BigQuery for distributed and cloud-based data processing.</li>
+                <li>Built and deployed deep learning workflows using TensorFlow; completed multi-cloud Big Data projects on AWS and GCP.</li>
+                <li>Designed data ingestion pipelines using GCP Dataflow and Cloud Storage, reducing data load times by 35%.</li>
+                <li>Gained hands-on exposure to model monitoring, A/B testing frameworks, and cloud-native MLOps tooling.</li>
+                <li>Collaborated on a real-time streaming analytics dashboard integrating Pub/Sub and BigQuery for live reporting.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-heading">Key Projects</h2>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="item-title">Belly Balance App <span style="font-weight: 400; color: #64748b; font-size: 0.9em;">(Health-Tech)</span></span>
+            </div>
+            <ul class="bullet-list">
+                <li>Full-stack data-driven application visualizing how dietary antioxidants neutralize carcinogenic radicals formed in fried foods, empowering users to make informed nutritional choices and proactively manage long-term dietary health risks.</li>
+                <li>Built interactive dashboards on React + Supabase with real-time food intake tracking.</li>
+                <li>Deployed an ML model recommending antioxidant-rich foods based on user health profile.</li>
+                <li>Hosted on GCP Cloud Run for scalable, low-latency serving across mobile and web clients.</li>
+            </ul>
+            <div class="tech-stack"><span>Tech:</span> React, Next.js, Supabase, GCP Cloud Run, TensorFlow</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="item-title">Real-Time Traffic Optimization <span style="font-weight: 400; color: #64748b; font-size: 0.9em;">(Smart City)</span></span>
+            </div>
+            <ul class="bullet-list">
+                <li>Distributed streaming platform analyzing live traffic sensor data across an urban network to enable adaptive rerouting, congestion reduction, and faster emergency response.</li>
+                <li>Spark Streaming pipelines processing 1.2M events/sec from IoT sensor network.</li>
+                <li>Cut average commute time by 22% and emergency response time by 31%.</li>
+                <li>Built ML-based traffic prediction models using TensorFlow for 5-minute ahead forecasting.</li>
+            </ul>
+            <div class="tech-stack"><span>Tech:</span> Python, Apache Spark, Spark Streaming, TensorFlow, PostgreSQL, Kubernetes</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="item-title">Fraud Detection System <span style="font-weight: 400; color: #64748b; font-size: 0.9em;">(FinSec)</span></span>
+            </div>
+            <ul class="bullet-list">
+                <li>Machine-learning-based fraud detection system flagging suspicious high-velocity transactions in near-real-time, helping financial systems intercept fraud patterns before settlement.</li>
+                <li>Spark Streaming pipeline achieving sub-second scoring and 94% detection accuracy.</li>
+                <li>Trained gradient-boosted ML models on 10M+ transactions for anomaly scoring.</li>
+                <li>Reduced false-positive rate by 38% via continuous model retraining (MLOps).</li>
+            </ul>
+            <div class="tech-stack"><span>Tech:</span> Python, Spark Streaming, Scikit-learn, PostgreSQL, Docker</div>
+        </div>
+
+        <h2 class="section-heading">Education</h2>
+        
+        <div class="timeline-item" style="margin-bottom: 15px;">
+            <div class="timeline-header">
+                <div>
+                    <span class="item-title">MS, Computer Science</span> 
+                    <span class="item-subtitle">| University of North Texas</span>
+                </div>
+                <div class="item-date">2024</div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <span class="item-title">B.Tech, Computer Science</span> 
+                    <span class="item-subtitle">| Vardhaman College of Engineering</span>
+                </div>
+                <div class="item-date">2022</div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
 </body>
 </html>
