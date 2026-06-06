@@ -3,98 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasisht Reddy K - Portfolio</title>
+    <title>Vasisht Reddy K - AI/ML & Data Engineer[cite: 1]</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --bg-color: #f9f9f9;
+            --primary-color: #0f172a;
+            --secondary-color: #334155;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --badge-bg: #dbeafe;
+            --badge-text: #1d4ed8;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-radius: 8px;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            padding: 20px;
         }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 12px;
+        }
+
         header {
             text-align: center;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
         }
+
         h1 {
             color: var(--primary-color);
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
         }
+
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            color: var(--text-muted);
         }
+
         .contact-info a {
             color: var(--accent-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
         h2 {
-            color: var(--secondary-color);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 30px;
+            color: var(--primary-color);
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            display: inline-block;
         }
+
         h3 {
             color: var(--primary-color);
+            font-size: 1.2em;
             margin-bottom: 5px;
         }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
         .date {
             float: right;
-            color: #7f8c8d;
+            color: var(--text-muted);
             font-size: 0.9em;
+            font-weight: 500;
         }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .job, .project, .education {
-            margin-bottom: 25px;
-        }
-        ul {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .tech-stack {
+
+        .subtitle {
             font-style: italic;
-            color: #555;
+            color: var(--text-muted);
             font-size: 0.9em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: var(--secondary-color);
+        }
+
+        li {
             margin-bottom: 10px;
         }
-        @media (max-width: 600px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .date {
-                float: none;
-                display: block;
-                margin-bottom: 10px;
-            }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Cards Design for Projects & Certifications */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border-color: var(--badge-bg);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Badges for Tech Stack */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* Certification specific */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .cert-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--secondary-color);
+            transition: background 0.2s ease;
+        }
+
+        .cert-card:hover {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border-color: var(--badge-text);
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 30px 20px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .date { float: none; display: block; margin-top: 5px; }
         }
     </style>
 </head>
@@ -102,62 +240,156 @@
 
 <div class="container">
     <header>
-        <h1>Vasisht Reddy K</h1>
+        <h1>Vasisht Reddy K[cite: 1]</h1>
         <div class="contact-info">
-            <span>Hyderabad, India</span> |
-            <span>+91 7386091468</span> |
-            <a href="mailto:KVasishtReddy@gmail.com">KVasishtReddy@gmail.com</a> |
-            <a href="https://linkedin.com/in/vasisht-reddy-karra" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/KarraVasisht" target="_blank">GitHub</a>
+            <span>Hyderabad, India[cite: 1]</span>
+            <span>+91 7386091468[cite: 1]</span>
+            <a href="mailto:KVasishtReddy@gmail.com">KVasishtReddy@gmail.com[cite: 1]</a>
+            <a href="https://linkedin.com/in/vasisht-reddy-karra" target="_blank">LinkedIn[cite: 1]</a>
+            <a href="https://github.com/KarraVasisht" target="_blank">GitHub[cite: 1]</a>
         </div>
     </header>
 
     <section>
-        <h2>PROFESSIONAL SUMMARY</h2>
-        <p>AI/ML & Data Engineer with 3+ years of professional experience (Feb 2021-Jun 2026) in machine learning, data engineering, and scalable pipeline architecture. Skilled in model training, feature engineering, and MLOps practices. Proficient in end-to-end model deployment, building prototypes, prompt programming, and AI-accelerated vibe coding. Proven impact: 45% ETL throughput gains, 60% query speedups, 99.9% pipeline reliability.</p>
+        <h2>Professional Summary[cite: 1]</h2>
+        <p>AI/ML & Data Engineer with 3+ years of professional experience (Feb 2021-Jun 2026) in machine learning, data engineering, and scalable pipeline architecture[cite: 1]. Skilled in model training, feature engineering, and MLOps practices[cite: 1]. Proficient in end-to-end model deployment, building prototypes, prompt programming, and AI-accelerated vibe coding[cite: 1]. Proven impact: 45% ETL throughput gains, 60% query speedups, 99.9% pipeline reliability[cite: 1].</p>
     </section>
 
     <section>
-        <h2>TECHNICAL SKILLS</h2>
+        <h2>Technical Skills[cite: 1]</h2>
         <div class="skills-grid">
-            <div><strong>Languages:</strong> Python, SQL, Scala, JavaScript</div>
-            <div><strong>ML & AI:</strong> TensorFlow, Scikit-learn, MLOps, Pandas, NumPy, Feature Engineering, Prompt Programming, LLMs</div>
-            <div><strong>Big Data & Pipelines:</strong> Apache Spark, PySpark, Spark Streaming, Airflow, dbt</div>
-            <div><strong>Cloud & Databases:</strong> AWS S3, Glue, Redshift, GCP BigQuery, PostgreSQL, MongoDB, Supabase, MS SQL</div>
-            <div><strong>DevOps & Tools:</strong> Docker, Kubernetes, CI/CD, Git, React, Next.js, Vibe Coding</div>
+            <div><strong>Languages:</strong> Python, SQL, Scala, JavaScript[cite: 1]</div>
+            <div><strong>ML & AI:</strong> TensorFlow, Scikit-learn, MLOps, Pandas, NumPy, Feature Engineering, Prompt Programming, LLMs[cite: 1]</div>
+            <div><strong>Big Data & Pipelines:</strong> Apache Spark, PySpark, Spark Streaming, Airflow, dbt[cite: 1]</div>
+            <div><strong>Cloud & Databases:</strong> AWS S3, Glue, Redshift, GCP BigQuery, PostgreSQL, MongoDB, Supabase, MS SQL[cite: 1]</div>
+            <div><strong>DevOps & Tools:</strong> Docker, Kubernetes, CI/CD, Git, React, Next.js, Vibe Coding[cite: 1]</div>
         </div>
     </section>
 
     <section>
-        <h2>PROFESSIONAL EXPERIENCE</h2>
+        <h2>Professional Experience[cite: 1]</h2>
         
-        <div class="job">
-            <h3>Data Engineer | Viswam Edutech Pvt Ltd <span class="date">Feb 2025-Present</span></h3>
-            <p><em>(Joined after completing MS from University of North Texas, May 2024)</em></p>
+        <div class="experience-item">
+            <h3>Data Engineer | Viswam Edutech Pvt Ltd <span class="date">Feb 2025-Present[cite: 1]</span></h3>
+            <span class="subtitle">(Joined after completing MS from University of North Texas, May 2024)[cite: 1]</span>
             <ul>
-                <li>Engineered randomized paper generation algorithms and bulk JSON data pipelines to scale assessment delivery and streamline backend database management.</li>
-                <li>Enhanced Apache Spark pipelines to support high-throughput data ingestion for analytics, achieving a 45% increase in throughput speed and a 20% reduction in cloud storage costs.</li>
-                <li>Architected robust data infrastructure for an end-to-end LAN-based exam portal, ensuring secure and seamless data flow for 10,000+ concurrent assessment sessions.</li>
-                <li>Accelerated prototype development for new data tooling by leveraging prompt programming and vibe coding workflows, cutting initial development time by 30%.</li>
-                <li>Prototype-coded and deployed the Viswam EduTech Online Exam platform using prompt-driven vibe coding, delivering a fully functional LAN-based assessment portal from concept to live deployment.</li>
-                <li>Maintained 99.9% pipeline reliability by automating data validation and optimizing scalable database schemas, reducing incident response time by 40%.</li>
+                <li>Engineered randomized paper generation algorithms and bulk JSON data pipelines to scale assessment delivery and streamline backend database management[cite: 1].</li>
+                <li>Enhanced Apache Spark pipelines to support high-throughput data ingestion for analytics, achieving a 45% increase in throughput speed and a 20% reduction in cloud storage costs[cite: 1].</li>
+                <li>Architected robust data infrastructure for an end-to-end LAN-based exam portal, ensuring secure and seamless data flow for 10,000+ concurrent assessment sessions[cite: 1].</li>
+                <li>Accelerated prototype development for new data tooling by leveraging prompt programming and vibe coding workflows, cutting initial development time by 30%[cite: 1].</li>
+                <li>Prototype-coded and deployed the Viswam EduTech Online Exam platform using prompt-driven vibe coding, delivering a fully functional LAN-based assessment portal from concept to live deployment[cite: 1].</li>
+                <li>Maintained 99.9% pipeline reliability by automating data validation and optimizing scalable database schemas, reducing incident response time by 40%[cite: 1].</li>
             </ul>
         </div>
 
-        <div class="job">
-            <h3>AI/ML Engineer | Brain-O-Vision <span class="date">Jan 2022-Aug 2022</span></h3>
-            <p><em>(During final year of B.Tech, CSE - Vardhaman College of Engineering)</em></p>
+        <div class="experience-item">
+            <h3>AI/ML Engineer | Brain-O-Vision <span class="date">Jan 2022-Aug 2022[cite: 1]</span></h3>
+            <span class="subtitle">(During final year of B.Tech, CSE - Vardhaman College of Engineering)[cite: 1]</span>
             <ul>
-                <li>Designed and orchestrated 50+ Airflow DAGs to automate feature engineering and ML preprocessing, reducing manual model preparation time by 90%.</li>
-                <li>Developed predictive modeling and anomaly scoring solutions across finance and healthcare domains, utilizing PySpark to process 500 GB+ of daily log data.</li>
-                <li>Established and maintained robust infrastructure for continuous model retraining and evaluation, ensuring optimal model performance and accuracy.</li>
+                <li>Designed and orchestrated 50+ Airflow DAGs to automate feature engineering and ML preprocessing, reducing manual model preparation time by 90%[cite: 1].</li>
+                <li>Developed predictive modeling and anomaly scoring solutions across finance and healthcare domains, utilizing PySpark to process 500 GB+ of daily log data[cite: 1].</li>
+                <li>Established and maintained robust infrastructure for continuous model retraining and evaluation, ensuring optimal model performance and accuracy[cite: 1].</li>
             </ul>
         </div>
 
-        <div class="job">
-            <h3>Cloud & Data Intern | Google Qwiklabs <span class="date">Feb 2021-Dec 2021</span></h3>
-            <p><em>(During B.Tech, CSE - Vardhaman College of Engineering)</em></p>
+        <div class="experience-item">
+            <h3>Cloud & Data Intern | Google Qwiklabs <span class="date">Feb 2021-Dec 2021[cite: 1]</span></h3>
+            <span class="subtitle">(During B.Tech, CSE - Vardhaman College of Engineering)[cite: 1]</span>
             <ul>
-                <li>Built and deployed deep learning workflows using TensorFlow within multi-cloud environments (AWS and GCP).</li>
-                <li>Implemented cloud-native MLOps tooling to support model monitoring, A/B testing frameworks, and scalable inference.</li>
-                <li>Engineered GCP Dataflow and Cloud Storage ingestion pipelines, decreasing data load times for ML training datasets by 35%.</li>
+                <li>Built and deployed deep learning workflows using TensorFlow within multi-cloud environments (AWS and GCP)[cite: 1].</li>
+                <li>Implemented cloud-native MLOps tooling to support model monitoring, A/B testing frameworks, and scalable inference[cite: 1].</li>
+                <li>Engineered GCP Dataflow and Cloud Storage ingestion pipelines, decreasing data load times for ML training datasets by 35%[cite: 1].</li>
+                <li>Deployed real-time streaming analytics dashboards integrating Pub/Sub and BigQuery for live reporting and Kubernetes-based distributed processing[cite: 1].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Attached Projects[cite: 1]</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <div class="card-title">Viswam EduTech Assessment Platform[cite: 1]</div>
+                <div class="badges">
+                    <span class="badge">HTML/CSS</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">Prompt Engineering</span>
+                    <span class="badge">Vibe Coding</span>
+                </div>
+                <ul>
+                    <li>Prototype-coded a full-featured online exam portal from scratch using prompt programming and vibe coding, rapidly iterating from concept to a deployed, browser-accessible assessment platform[cite: 1].</li>
+                    <li>Implemented randomized question delivery, timed assessments, and secure answer submission - demonstrating end-to-end product delivery through AI-accelerated development workflows[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">FitStart Health & Antioxidant Tracker[cite: 1]</div>
+                <div class="badges">
+                    <span class="badge">React & Next.js</span>
+                    <span class="badge">Supabase</span>
+                    <span class="badge">GCP Cloud Run</span>
+                    <span class="badge">TensorFlow</span>
+                </div>
+                <ul>
+                    <li>Full-stack data-driven application visualizing dietary antioxidant impacts, hosted on GCP Cloud Run for scalable, low-latency serving - sustaining &lt;200 ms p95 latency under load[cite: 1].</li>
+                    <li>Deployed an ML model recommending antioxidant-rich foods based on user health profile and historical inputs, achieving 87% recommendation accuracy in internal evaluations[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Real-Time Traffic Optimization[cite: 1]</div>
+                <div class="badges">
+                    <span class="badge">Python</span>
+                    <span class="badge">Spark Streaming</span>
+                    <span class="badge">TensorFlow</span>
+                    <span class="badge">Kubernetes</span>
+                </div>
+                <ul>
+                    <li>Built ML-based traffic prediction models using TensorFlow for 5-minute ahead forecasting, cutting average commute time by 22% in simulation[cite: 1].</li>
+                    <li>Developed Spark Streaming pipelines processing 1.2 M events/sec from an IoT sensor network to enable adaptive rerouting across 500+ road segments[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Fraud Detection System[cite: 1]</div>
+                <div class="badges">
+                    <span class="badge">Python</span>
+                    <span class="badge">Spark</span>
+                    <span class="badge">Scikit-learn</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">Docker</span>
+                </div>
+                <ul>
+                    <li>Trained gradient-boosted ML models on 10 M+ transactions for anomaly scoring, achieving sub-second scoring latency and 94% detection accuracy at production scale[cite: 1].</li>
+                    <li>Reduced false-positive rate by 38% via continuous model retraining through robust MLOps practices, saving an estimated $2M/year in manual review costs[cite: 1].</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>Education & Certifications[cite: 1]</h2>
+        
+        <div class="experience-item">
+            <h3>MS, Computer Science <span class="date">Graduated: May 2024[cite: 1]</span></h3>
+            <p>University of North Texas[cite: 1]</p>
+        </div>
+
+        <div class="experience-item">
+            <h3>B.Tech, Computer Science & Engineering <span class="date">Graduated: Aug 2022[cite: 1]</span></h3>
+            <p>Vardhaman College of Engineering[cite: 1]</p>
+        </div>
+
+        <h3 style="margin-top: 30px; margin-bottom: 15px;">Attached Certifications[cite: 1]</h3>
+        <div class="cert-grid">
+            <div class="cert-card">🏅 Certified AI-Driven Professional<br><small>(Be10x, 2026)</small>[cite: 1]</div>
+            <div class="cert-card">🏅 Data Engineering Master Program<br><small>(Coursera, 2023)</small>[cite: 1]</div>
+            <div class="cert-card">🏅 Cloud Data Engineering<br><small>(Coursera, 2023)</small>[cite: 1]</div>
+            <div class="cert-card">🏅 Real-Time Data Engineering<br><small>(Udemy, 2022)</small>[cite: 1]</div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
