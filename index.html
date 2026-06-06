@@ -3,473 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasisht Reddy K - AI/ML & Data Engineer Portfolio</title>
+    <title>Vasisht Reddy K - Portfolio</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --bg-main: #f8fafc;
-            --bg-card: #ffffff;
-            --border-color: #e2e8f0;
-            --accent: #3b82f6;
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
         }
-
-        * {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
-
-        /* Header / Hero Section */
         header {
-            background-color: var(--bg-card);
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border-color);
             text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #111827;
-            margin-bottom: 10px;
-        }
-
-        header h2 {
-            font-size: 1.25rem;
+        h1 {
             color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 20px;
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
         }
-
-        .contact-links {
+        .contact-info {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
+            font-size: 0.9em;
         }
-
-        .contact-links a {
-            color: var(--text-muted);
+        .contact-info a {
+            color: var(--accent-color);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.2s;
         }
-
-        .contact-links a:hover {
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
             color: var(--primary-color);
+            margin-bottom: 5px;
         }
-
-        /* General Section Styling */
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
+        .date {
+            float: right;
+            color: #7f8c8d;
+            font-size: 0.9em;
         }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            color: #111827;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* Summary */
-        .summary {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 800px;
-        }
-
-        /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
-
-        .skill-category {
-            background-color: var(--bg-card);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .job, .project, .education {
+            margin-bottom: 25px;
         }
-
-        .skill-category h3 {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background-color: #eff6ff;
-            color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Experience */
-        .job {
-            margin-bottom: 40px;
-        }
-
-        .job:last-child {
-            margin-bottom: 0;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .job-title-company h3 {
-            font-size: 1.25rem;
-            color: #111827;
-        }
-
-        .job-title-company span {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        .job-date {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .job-bullets {
-            list-style-type: none;
-        }
-
-        .job-bullets li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            color: var(--text-muted);
-        }
-
-        .job-bullets li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background-color: var(--bg-card);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            color: #111827;
-            margin-bottom: 10px;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        /* Education */
-        .edu-item {
-            margin-bottom: 20px;
-        }
-
-        .edu-degree {
-            font-weight: bold;
-            color: #111827;
-        }
-
-        .edu-school {
-            color: var(--text-muted);
-        }
-
-        .cert-list {
-            color: var(--text-muted);
+        ul {
             margin-top: 10px;
+            padding-left: 20px;
         }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        li {
+            margin-bottom: 8px;
         }
-
+        .tech-stack {
+            font-style: italic;
+            color: #555;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
         @media (max-width: 600px) {
-            .job-header {
-                flex-direction: column;
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
-            .job-date {
-                margin-top: 5px;
+            .date {
+                float: none;
+                display: block;
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
 
+<div class="container">
     <header>
-        <div class="container">
-            <h1>Vasisht Reddy K</h1>
-            <h2>AI/ML & Data Engineer</h2>
-            <div class="contact-links">
-                <a href="mailto:KVasishtReddy@gmail.com">✉ KVasishtReddy@gmail.com</a>
-                <a href="tel:+917386091468">📞 +91 7386091468</a>
-                <a href="https://linkedin.com/in/vasisht-reddy-karra" target="_blank">in/vasisht-reddy-karra</a>
-                <a href="https://github.com/KarraVasisht" target="_blank">github.com/KarraVasisht</a>
-                <span>📍 Hyderabad, India</span>
-            </div>
+        <h1>Vasisht Reddy K</h1>
+        <div class="contact-info">
+            <span>Hyderabad, India</span> |
+            <span>+91 7386091468</span> |
+            <a href="mailto:KVasishtReddy@gmail.com">KVasishtReddy@gmail.com</a> |
+            <a href="https://linkedin.com/in/vasisht-reddy-karra" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/KarraVasisht" target="_blank">GitHub</a>
         </div>
     </header>
 
-    <main class="container">
+    <section>
+        <h2>PROFESSIONAL SUMMARY</h2>
+        <p>AI/ML & Data Engineer with 3+ years of professional experience (Feb 2021-Jun 2026) in machine learning, data engineering, and scalable pipeline architecture. Skilled in model training, feature engineering, and MLOps practices. Proficient in end-to-end model deployment, building prototypes, prompt programming, and AI-accelerated vibe coding. Proven impact: 45% ETL throughput gains, 60% query speedups, 99.9% pipeline reliability.</p>
+    </section>
+
+    <section>
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills-grid">
+            <div><strong>Languages:</strong> Python, SQL, Scala, JavaScript</div>
+            <div><strong>ML & AI:</strong> TensorFlow, Scikit-learn, MLOps, Pandas, NumPy, Feature Engineering, Prompt Programming, LLMs</div>
+            <div><strong>Big Data & Pipelines:</strong> Apache Spark, PySpark, Spark Streaming, Airflow, dbt</div>
+            <div><strong>Cloud & Databases:</strong> AWS S3, Glue, Redshift, GCP BigQuery, PostgreSQL, MongoDB, Supabase, MS SQL</div>
+            <div><strong>DevOps & Tools:</strong> Docker, Kubernetes, CI/CD, Git, React, Next.js, Vibe Coding</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>PROFESSIONAL EXPERIENCE</h2>
         
-        <section id="about">
-            <h2 class="section-title">Professional Summary</h2>
-            <p class="summary">
-                AI/ML & Data Engineer with 3+ years of experience in machine learning, data engineering, and scalable pipeline architecture[cite: 8]. Skilled in model training, feature engineering, and MLOps practices[cite: 8]. Proficient in end-to-end model deployment, building prototypes, prompt programming, and AI-accelerated vibe coding[cite: 8]. Proven impact: 45% ETL throughput gains, 60% query speedups, 99.9% pipeline reliability[cite: 8].
-            </p>
-        </section>
+        <div class="job">
+            <h3>Data Engineer | Viswam Edutech Pvt Ltd <span class="date">Feb 2025-Present</span></h3>
+            <p><em>(Joined after completing MS from University of North Texas, May 2024)</em></p>
+            <ul>
+                <li>Engineered randomized paper generation algorithms and bulk JSON data pipelines to scale assessment delivery and streamline backend database management.</li>
+                <li>Enhanced Apache Spark pipelines to support high-throughput data ingestion for analytics, achieving a 45% increase in throughput speed and a 20% reduction in cloud storage costs.</li>
+                <li>Architected robust data infrastructure for an end-to-end LAN-based exam portal, ensuring secure and seamless data flow for 10,000+ concurrent assessment sessions.</li>
+                <li>Accelerated prototype development for new data tooling by leveraging prompt programming and vibe coding workflows, cutting initial development time by 30%.</li>
+                <li>Prototype-coded and deployed the Viswam EduTech Online Exam platform using prompt-driven vibe coding, delivering a fully functional LAN-based assessment portal from concept to live deployment.</li>
+                <li>Maintained 99.9% pipeline reliability by automating data validation and optimizing scalable database schemas, reducing incident response time by 40%.</li>
+            </ul>
+        </div>
 
-        <section id="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Scala</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>ML & AI</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">MLOps</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Feature Engineering</span>
-                        <span class="skill-tag">Prompt Programming</span>
-                        <span class="skill-tag">LLMs</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Big Data & Pipelines</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Apache Spark</span>
-                        <span class="skill-tag">PySpark</span>
-                        <span class="skill-tag">Spark Streaming</span>
-                        <span class="skill-tag">Airflow</span>
-                        <span class="skill-tag">dbt</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud & Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS (S3, Glue, Redshift)</span>
-                        <span class="skill-tag">GCP BigQuery</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Supabase</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Vibe Coding</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="job">
+            <h3>AI/ML Engineer | Brain-O-Vision <span class="date">Jan 2022-Aug 2022</span></h3>
+            <p><em>(During final year of B.Tech, CSE - Vardhaman College of Engineering)</em></p>
+            <ul>
+                <li>Designed and orchestrated 50+ Airflow DAGs to automate feature engineering and ML preprocessing, reducing manual model preparation time by 90%.</li>
+                <li>Developed predictive modeling and anomaly scoring solutions across finance and healthcare domains, utilizing PySpark to process 500 GB+ of daily log data.</li>
+                <li>Established and maintained robust infrastructure for continuous model retraining and evaluation, ensuring optimal model performance and accuracy.</li>
+            </ul>
+        </div>
 
-        <section id="experience">
-            <h2 class="section-title">Professional Experience</h2>
-            
-            <div class="job">
-                <div class="job-header">
-                    <div class="job-title-company">
-                        <h3>Data Engineer</h3>
-                        <span>Viswam Edutech Pvt Ltd</span>
-                    </div>
-                    <div class="job-date">Feb 2025 – Present</div>
-                </div>
-                <ul class="job-bullets">
-                    <li>Engineered randomized paper generation algorithms and bulk JSON data pipelines to scale assessment delivery and streamline backend database management[cite: 8].</li>
-                    <li>Enhanced Apache Spark pipelines to support high-throughput data ingestion for analytics, achieving a 45% increase in speed and a 20% reduction in cloud storage costs[cite: 8].</li>
-                    <li>Architected robust data infrastructure for an end-to-end LAN-based exam portal, ensuring secure and seamless data flow for secure assessments[cite: 8].</li>
-                    <li>Accelerated the building of prototypes for new data tooling by leveraging prompt programming and vibe coding workflows, cutting initial development time by 30%[cite: 8].</li>
-                    <li>Maintained 99.9% pipeline reliability by automating data validation and optimizing scalable database schemas[cite: 8].</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div class="job-title-company">
-                        <h3>AI/ML Engineer</h3>
-                        <span>Brain-O-Vision</span>
-                    </div>
-                    <div class="job-date">Jan 2022 – Aug 2022</div>
-                </div>
-                <ul class="job-bullets">
-                    <li>Designed and orchestrated 50+ Airflow DAGs to automate feature engineering and ML preprocessing, reducing manual model preparation time by 90%[cite: 8].</li>
-                    <li>Developed predictive modeling and anomaly scoring solutions across finance and healthcare domains, utilizing PySpark to process 500 GB+ of daily log data[cite: 8].</li>
-                    <li>Established and maintained robust infrastructure for continuous model retraining and evaluation, ensuring optimal model performance and accuracy[cite: 8].</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div class="job-title-company">
-                        <h3>Cloud & Data Intern</h3>
-                        <span>Google Qwiklabs</span>
-                    </div>
-                    <div class="job-date">Feb 2021 – Dec 2021</div>
-                </div>
-                <ul class="job-bullets">
-                    <li>Built and deployed deep learning workflows using TensorFlow within multi-cloud environments (AWS and GCP)[cite: 8].</li>
-                    <li>Implemented cloud-native MLOps tooling to support model monitoring, A/B testing frameworks, and scalable inference[cite: 8].</li>
-                    <li>Engineered GCP Dataflow and Cloud Storage ingestion pipelines, decreasing data load times for ML training datasets by 35%[cite: 8].</li>
-                    <li>Deployed real-time streaming analytics dashboards integrating Pub/Sub and BigQuery for live reporting and Kubernetes-based distributed processing[cite: 8].</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2 class="section-title">Key Projects</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <h3 class="project-title">Belly Balance App (Health-Tech)</h3>
-                    <div class="skill-tags" style="margin-bottom: 10px;">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">React</span>
-                    </div>
-                    <p class="project-desc">Full-stack data-driven application visualizing dietary antioxidant impacts, hosted on GCP Cloud Run for scalable, low-latency serving[cite: 8].</p>
-                    <p class="project-desc">Deployed an ML model recommending antioxidant-rich foods based on user health profile and historical inputs[cite: 8].</p>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Real-Time Traffic Optimization</h3>
-                    <div class="skill-tags" style="margin-bottom: 10px;">
-                        <span class="skill-tag">Spark Streaming</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Kubernetes</span>
-                    </div>
-                    <p class="project-desc">Built ML-based traffic prediction models using TensorFlow for 5-minute ahead forecasting, cutting average commute time by 22%[cite: 8].</p>
-                    <p class="project-desc">Developed Spark Streaming pipelines processing 1.2M events/sec from an IoT sensor network to enable adaptive rerouting[cite: 8].</p>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Fraud Detection System</h3>
-                    <div class="skill-tags" style="margin-bottom: 10px;">
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Docker</span>
-                    </div>
-                    <p class="project-desc">Trained gradient-boosted ML models on 10M+ transactions for anomaly scoring, achieving sub-second scoring and 94% detection accuracy[cite: 8].</p>
-                    <p class="project-desc">Reduced false-positive rate by 38% via continuous model retraining implemented through robust MLOps practices[cite: 8].</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="education">
-            <h2 class="section-title">Education & Certifications</h2>
-            
-            <div class="edu-item">
-                <div class="edu-degree">MS, Computer Science</div>
-                <div class="edu-school">University of North Texas • 2024</div>
-            </div>
-            
-            <div class="edu-item">
-                <div class="edu-degree">B.Tech, Computer Science</div>
-                <div class="edu-school">Vardhaman College of Engineering • 2022</div>
-            </div>
-
-            <div class="cert-list">
-                <strong>Certifications:</strong> 
-                Certified AI-Driven Professional (Be10x 2026) | 
-                Data Engineering Master Program (Coursera 2023) | 
-                Cloud Data Engineering (Coursera 2023) | 
-                Real-Time Data Engineering (Udemy 2022)
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Vasisht Reddy K. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+        <div class="job">
+            <h3>Cloud & Data Intern | Google Qwiklabs <span class="date">Feb 2021-Dec 2021</span></h3>
+            <p><em>(During B.Tech, CSE - Vardhaman College of Engineering)</em></p>
+            <ul>
+                <li>Built and deployed deep learning workflows using TensorFlow within multi-cloud environments (AWS and GCP).</li>
+                <li>Implemented cloud-native MLOps tooling to support model monitoring, A/B testing frameworks, and scalable inference.</li>
+                <li>Engineered GCP Dataflow and Cloud Storage ingestion pipelines, decreasing data load times for ML training datasets by 35%.</li>
